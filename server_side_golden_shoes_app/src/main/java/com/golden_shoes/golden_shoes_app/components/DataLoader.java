@@ -88,10 +88,15 @@ public class DataLoader implements ApplicationRunner {
         Order order1 = goldenShoes.makeOrder(customer1, orderList1);
         orderRepository.save(order1);
 
+
         ArrayList<StockItem> orderList2 = new ArrayList<>();
-        orderList1.add(item3);
+        orderList2.add(item3);
         Order order2 = goldenShoes.makeOrder(customer1, orderList2);
         orderRepository.save(order2);
+
+        stockItemRepository.save(item2);
+        stockItemRepository.save(item12);
+        stockItemRepository.save(item3);
 
 
 
