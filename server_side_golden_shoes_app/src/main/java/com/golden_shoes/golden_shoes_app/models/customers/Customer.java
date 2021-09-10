@@ -31,7 +31,7 @@ public class Customer {
         this.orders = new ArrayList<>();
     }
 
-    public Customer(Order[] orders) {
+    public Customer() {
         this.orders = new ArrayList<>();
     }
 

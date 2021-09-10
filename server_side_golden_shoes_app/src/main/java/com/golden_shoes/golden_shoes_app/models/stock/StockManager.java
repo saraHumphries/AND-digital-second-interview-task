@@ -28,7 +28,7 @@ public class StockManager {
         this.stockItems = new ArrayList<>();
     }
 
-    public StockManager(List<StockItem> stockItems) {
+    public StockManager() {
         this.stockItems = new ArrayList<>();
     }
 
@@ -63,19 +63,23 @@ public class StockManager {
 
     public void addStock(StockItem stockItem) {
         this.stockItems.add(stockItem);
+        stockItem.setStockManager(this);
     }
 
-    public Order makeSale(Customer customer, ArrayList<StockItem> orderItems) {
+    public Order makeOrder(Customer customer, ArrayList<StockItem> orderItems) {
 
         ArrayList<StockItem> itemsInStock = new ArrayList<>();
+        Order order = new Order(itemsInStock, customer);
 
         for (StockItem stockItem : orderItems) {
             if (!stockItem.getSoldStatus()) {
                 this.sellStock(stockItem);
                 itemsInStock.add(stockItem);
+                stockItem.setOrder(order);
             }
         }
-        return new Order(itemsInStock, customer);
+
+        return order;
     }
 
 

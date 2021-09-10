@@ -34,7 +34,7 @@ public class ShoeType {
         this.stockItems = new ArrayList<>();
     }
 
-    public ShoeType(List<StockItem> stockItems) {
+    public ShoeType() {
         this.stockItems = new ArrayList<>();
     }
 

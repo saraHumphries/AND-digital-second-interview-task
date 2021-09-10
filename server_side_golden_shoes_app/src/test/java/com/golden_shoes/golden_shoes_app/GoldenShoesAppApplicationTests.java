@@ -33,8 +33,8 @@ public class GoldenShoesAppApplicationTests {
 	public void before() {
 		stockManager = new StockManager("golden shoes");
 		adidasTrainer = new ShoeType("ADIDAS", "trainer", 45.50);
-		stockItem1 = new StockItem(7, "blue", adidasTrainer);
-		stockItem2 = new StockItem(6, "blue", adidasTrainer);
+		stockItem1 = new StockItem(7, "blue", adidasTrainer, stockManager);
+		stockItem2 = new StockItem(6, "blue", adidasTrainer, stockManager);
 		stockManager.addStock(stockItem1);
 		stockManager.addStock(stockItem2);
 		stockItemsForOrder = new ArrayList<>();
@@ -71,7 +71,7 @@ public class GoldenShoesAppApplicationTests {
 
 	@Test
 	public void stockManagerCanAddStock() {
-		StockItem stockItem3 = new StockItem(5, "red", adidasTrainer);
+		StockItem stockItem3 = new StockItem(5, "red", adidasTrainer, stockManager);
 		stockManager.addStock(stockItem3);
 		assertEquals(stockManager.getStockItems().size(), 3);
 	}
@@ -82,7 +82,7 @@ public class GoldenShoesAppApplicationTests {
 		ArrayList<StockItem> orderItems;
 		orderItems = new ArrayList<>();
 		orderItems.add(stockItem1);
-		Order newOrder = stockManager.makeSale(customer, orderItems);
+		Order newOrder = stockManager.makeOrder(customer, orderItems);
 		assertEquals(newOrder.getStockItems().size(), 1);
 		assertEquals(stockItem1.getSoldStatus(), true);
 	}
@@ -92,8 +92,21 @@ public class GoldenShoesAppApplicationTests {
 		stockManager.sellStock(stockItem1);
 		ArrayList<StockItem> orderItems = new ArrayList<>();
 		orderItems.add(stockItem1);
-		Order newOrder = stockManager.makeSale(customer, orderItems);
+		Order newOrder = stockManager.makeOrder(customer, orderItems);
 		assertEquals(newOrder.getStockItems().size(), 0);
 	}
 
+	@Test
+	public void stockManagerIsAddedToStock() {
+		assertEquals(stockItem1.getStockManager(), stockManager);
+	}
+
+	@Test
+	public void stockItemHasOrder() {
+		ArrayList<StockItem> orderItems = new ArrayList<>();
+		StockItem item5 = new StockItem(5, "white", adidasTrainer, stockManager);
+		orderItems.add(item5);
+		Order order = stockManager.makeOrder(customer, orderItems);
+		assertEquals(item5.getOrder(), order);
+	}
 }

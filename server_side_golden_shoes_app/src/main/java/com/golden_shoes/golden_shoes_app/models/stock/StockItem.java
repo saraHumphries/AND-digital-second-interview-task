@@ -38,11 +38,11 @@ public class StockItem {
     @JsonIgnoreProperties(value = "stockItems")
     private StockManager stockManager;
 
-    public StockItem(Integer size, String colour, ShoeType shoeType) {
+    public StockItem(Integer size, String colour, ShoeType shoeType, StockManager stockManager) {
         this.size = size;
         this.colour = colour;
         this.shoeType = shoeType;
-        this.stockManager = null;
+        this.stockManager = stockManager;
         this.soldStatus = false;
         this.order = null;
 
