@@ -13,7 +13,7 @@ const StockContainer = function() {
 
     return (
         <div>
-            <h2>Stock contianer</h2>
+            <h2>Stock container</h2>
         </div>
     );
 };

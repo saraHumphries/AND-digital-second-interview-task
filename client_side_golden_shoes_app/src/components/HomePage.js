@@ -2,7 +2,12 @@
 const HomePage = function() {
     return (
         <div>
-            <h2>HomePage</h2>
+            <div id='categories-list'>
+                <ul>
+                    <li><a href='/stock'>WOMENS</a></li>
+                    <li><a href='/stock'>MENS</a></li>
+                </ul>
+            </div>
         </div>
     );
 };
