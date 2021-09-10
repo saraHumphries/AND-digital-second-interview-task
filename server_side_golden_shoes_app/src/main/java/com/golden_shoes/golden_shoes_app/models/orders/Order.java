@@ -30,11 +30,11 @@ public class Order {
     @Column(name = "delivered_status")
     private Boolean deliveredStatus;
 
-    public Order(List<StockItem> stockItems, Customer customer, Boolean dispatchedStatus, Boolean deliveredStatus) {
+    public Order(List<StockItem> stockItems, Customer customer) {
         this.stockItems = stockItems;
         this.customer = customer;
-        this.dispatchedStatus = dispatchedStatus;
-        this.deliveredStatus = deliveredStatus;
+        this.dispatchedStatus = false;
+        this.deliveredStatus = false;
     }
 
     public Order() {
@@ -48,11 +48,11 @@ public class Order {
         this.id = id;
     }
 
-    public List<StockItem> getShoes() {
+    public List<StockItem> getStockItems() {
         return stockItems;
     }
 
-    public void setShoes(List<StockItem> stockItems) {
+    public void setStockItems(List<StockItem> stockItems) {
         this.stockItems = stockItems;
     }
 
