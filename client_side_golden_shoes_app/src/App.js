@@ -1,10 +1,11 @@
 
 import './App.css';
+import StockContainer from './containers/StockContainer';
 
 function App() {
   return (
     <div className="App">
-      <h1>App</h1>
+      <StockContainer></StockContainer>
     </div>
   );
 }
