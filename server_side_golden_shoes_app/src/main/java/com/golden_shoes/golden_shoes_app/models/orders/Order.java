@@ -2,7 +2,7 @@ package com.golden_shoes.golden_shoes_app.models.orders;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.golden_shoes.golden_shoes_app.models.customers.Customer;
-import com.golden_shoes.golden_shoes_app.models.stock.Shoe;
+import com.golden_shoes.golden_shoes_app.models.stock.StockItem;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,16 +17,21 @@ public class Order {
 
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = "order")
-    private List<Shoe> shoes;
+    private List<StockItem> stockItems;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    @JsonIgnoreProperties(value = "orders")
     private Customer customer;
 
+    @Column(name = "dispatched_status")
     private Boolean dispatchedStatus;
 
+    @Column(name = "delivered_status")
     private Boolean deliveredStatus;
 
-    public Order(List<Shoe> shoes, Customer customer, Boolean dispatchedStatus, Boolean deliveredStatus) {
-        this.shoes = shoes;
+    public Order(List<StockItem> stockItems, Customer customer, Boolean dispatchedStatus, Boolean deliveredStatus) {
+        this.stockItems = stockItems;
         this.customer = customer;
         this.dispatchedStatus = dispatchedStatus;
         this.deliveredStatus = deliveredStatus;
@@ -43,12 +48,12 @@ public class Order {
         this.id = id;
     }
 
-    public List<Shoe> getShoes() {
-        return shoes;
+    public List<StockItem> getShoes() {
+        return stockItems;
     }
 
-    public void setShoes(List<Shoe> shoes) {
-        this.shoes = shoes;
+    public void setShoes(List<StockItem> stockItems) {
+        this.stockItems = stockItems;
     }
 
     public Customer getCustomer() {

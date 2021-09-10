@@ -1,29 +1,41 @@
 package com.golden_shoes.golden_shoes_app.models.stock;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "shoe_types")
 public class ShoeType {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "brand")
     private String brand;
 
+    @Column(name = "description")
     private String description;
 
-    private Long price;
+    @Column(name = "price")
+    private Double price;
 
-    private List<Shoe> shoes;
+    @OneToMany(mappedBy = "shoeType", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = "shoeType")
+    private List<StockItem> stockItems;
 
-    public ShoeType(String brand, String description, Long price) {
+    public ShoeType(String brand, String description, Double price) {
         this.brand = brand;
         this.description = description;
         this.price = price;
-        this.shoes = new ArrayList<>();
+        this.stockItems = new ArrayList<>();
     }
 
-    public ShoeType(List<Shoe> shoes) {
-        this.shoes = new ArrayList<>();
+    public ShoeType(List<StockItem> stockItems) {
+        this.stockItems = new ArrayList<>();
     }
 
     public Long getId() {
@@ -50,19 +62,19 @@ public class ShoeType {
         this.description = description;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public List<Shoe> getShoes() {
-        return shoes;
+    public List<StockItem> getShoes() {
+        return stockItems;
     }
 
-    public void setShoes(List<Shoe> shoes) {
-        this.shoes = shoes;
+    public void setShoes(List<StockItem> stockItems) {
+        this.stockItems = stockItems;
     }
 }

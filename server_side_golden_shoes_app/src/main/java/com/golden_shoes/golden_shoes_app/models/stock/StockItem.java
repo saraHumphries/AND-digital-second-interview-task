@@ -1,27 +1,46 @@
 package com.golden_shoes.golden_shoes_app.models.stock;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.golden_shoes.golden_shoes_app.models.orders.Order;
 
-public class Shoe {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "stock_items")
+public class StockItem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "size")
     private Integer size;
 
+    @Column(name = "colour")
     private String colour;
 
+    @Column(name = "sold_status")
     private Boolean soldStatus;
 
+    @ManyToOne
+    @JoinColumn(name = "shoe_type_id", nullable = false)
+    @JsonIgnoreProperties(value = "stockItems")
+    private ShoeType shoeType;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    @JsonIgnoreProperties(value = "stockItems")
     private Order order;
 
-    public Shoe(Integer size, String colour, Boolean soldStatus, Order order) {
+    public StockItem(Integer size, String colour, ShoeType shoeType) {
         this.size = size;
         this.colour = colour;
-        this.soldStatus = soldStatus;
-        this.order = order;
+        this.shoeType = shoeType;
+        this.soldStatus = false;
+        this.order = null;
     }
 
-    public Shoe() {
+    public StockItem() {
     }
 
     public Long getId() {
@@ -62,5 +81,13 @@ public class Shoe {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public ShoeType getShoeType() {
+        return shoeType;
+    }
+
+    public void setShoeType(ShoeType shoeType) {
+        this.shoeType = shoeType;
     }
 }
