@@ -84,7 +84,6 @@ public class GoldenShoesAppApplicationTests {
 		orderItems.add(stockItem1);
 		Order newOrder = stockManager.makeSale(customer, orderItems);
 		assertEquals(newOrder.getStockItems().size(), 1);
-		assertEquals(stockManager.getStockItems().size(), 1);
 		assertEquals(stockItem1.getSoldStatus(), true);
 	}
 
