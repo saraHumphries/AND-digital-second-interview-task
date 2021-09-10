@@ -1,14 +1,22 @@
 package com.golden_shoes.golden_shoes_app.models.orders;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.golden_shoes.golden_shoes_app.models.customers.Customer;
 import com.golden_shoes.golden_shoes_app.models.stock.Shoe;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "orders")
 public class Order {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = "order")
     private List<Shoe> shoes;
 
     private Customer customer;
