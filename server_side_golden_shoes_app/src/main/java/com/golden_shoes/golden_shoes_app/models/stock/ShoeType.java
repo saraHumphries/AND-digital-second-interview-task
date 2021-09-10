@@ -1,6 +1,7 @@
 package com.golden_shoes.golden_shoes_app.models.stock;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class ShoeType {
     private Double price;
 
     @OneToMany(mappedBy = "shoeType", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = "shoeType")
+    @JsonManagedReference(value = "shoe_type_stock_items")
     private List<StockItem> stockItems;
 
     public ShoeType(String brand, String description, Double price) {

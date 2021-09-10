@@ -1,5 +1,6 @@
 package com.golden_shoes.golden_shoes_app.models.stock;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.golden_shoes.golden_shoes_app.models.orders.Order;
 
@@ -25,7 +26,7 @@ public class StockItem {
 
     @ManyToOne
     @JoinColumn(name = "shoe_type_id", nullable = false)
-    @JsonIgnoreProperties(value = "stockItems")
+    @JsonBackReference(value = "shoe_type_stock_items")
     private ShoeType shoeType;
 
     @ManyToOne
