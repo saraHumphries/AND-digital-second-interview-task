@@ -8,4 +8,6 @@ import java.util.List;
 public interface StockItemRepository extends JpaRepository<StockItem, Long> {
 
     List<StockItem> findStockItemsByShoeTypeId(Long shoeTypeId);
+
+    List<StockItem> findStockItemsByShoeTypeIdAndSoldStatus(Long shoeTypeId, Boolean soldStatus);
 }

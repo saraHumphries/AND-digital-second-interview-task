@@ -18,11 +18,20 @@ public class StockItemController {
 
     @GetMapping(value = "/stock_items")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<List<StockItem>> getAllStockItemsByParams(@RequestParam(name = "shoe_type_id", required = false) Long shoeTypeId) {
-        if (shoeTypeId == null) {
-            return new ResponseEntity<>(stockItemRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<StockItem>> getAllStockItemsByParams(
+
+            @RequestParam(name = "shoe_type_id", required = false) Long shoeTypeId
+            , @RequestParam(name = "sold_status", required = false) Boolean soldStatus
+            ) {
+
+        if (shoeTypeId != null && soldStatus !=null) {
+            return new ResponseEntity<>(stockItemRepository.findStockItemsByShoeTypeIdAndSoldStatus(shoeTypeId, soldStatus), HttpStatus.OK);
         }
-        return new ResponseEntity<>(stockItemRepository.findStockItemsByShoeTypeId(shoeTypeId), HttpStatus.OK);
+        else if (shoeTypeId != null) {
+            return new ResponseEntity<>(stockItemRepository.findStockItemsByShoeTypeId(shoeTypeId), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(stockItemRepository.findAll(), HttpStatus.OK);
+
     }
 
     @GetMapping(value = "/stock_items/{id}")
