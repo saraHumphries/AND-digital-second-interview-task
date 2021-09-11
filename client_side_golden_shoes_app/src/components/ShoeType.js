@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 const ShoeType = function({category, shoeType, stockInventory}) {
 
 
-    
-
     return (
         <div>
             <Link to={{

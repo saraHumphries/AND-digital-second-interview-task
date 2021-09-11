@@ -17,17 +17,22 @@ const ShowShoe = function() {
     useEffect(() => {
         StockService.getStockItemByShoeTypeId(shoeType.id)
             .then(res => setStockInventory(res))
-            .then(evt => getAllAvailableSizesandColours());
     }, []);
 
-    const getAllAvailableSizesandColours = function() {
-        const availableSizes = [];
-        for (const stockItem of stockInventory) {
-            if (!availableSizes.includes(stockItem.size)) {
-                availableSizes.push(stockItem.size);
-            }
-        }
-        setAvailableSizes(availableSizes);
+    useEffect(() => {
+        getAllAvailableColours();
+    }, [stockInventory]);
+
+    useEffect(() => {
+        setSizeOptionToSelected();
+        setColourOptionToSelected();
+        setAvailableSizesForColour();
+    },[selectedColour, selectedSize]);
+
+
+
+    const getAllAvailableColours = function() {
+
         const availableColours = [];
         for (const stockItem of stockInventory) {
             if (!availableColours.includes(stockItem.colour)) {
@@ -46,11 +51,37 @@ const ShowShoe = function() {
     });
 
     const onColourChange = function() {
+        setColourOptionToSelected();
         
+        setAvailableSizesForColour();
+
+        const sizeSelector = document.getElementById('sizes');
+        sizeSelector.disabled = false;
+        sizeSelector.selectedIndex = 0;
+    };
+
+    const setColourOptionToSelected = function() {
+        const colourOptionSelected = document.getElementById('colours');
+        setSelectedColour(colourOptionSelected.value);
+    };
+
+    const setAvailableSizesForColour = function() {
+        const availableSizesForThisColour = [];
+        for (const stockItem of stockInventory) {
+            if (stockItem.colour == selectedColour && !availableSizesForThisColour.includes(stockItem.size)) {
+                availableSizesForThisColour.push(stockItem.size);
+            }
+        };
+        setAvailableSizes(availableSizesForThisColour);
+    };
+
+    const setSizeOptionToSelected = function() {
+        const sizeOptionSelected = document.getElementById('sizes');
+        setSelectedSize(sizeOptionSelected.value);
     };
 
     const onSizeChange = function() {
-        
+        setSizeOptionToSelected();
     };
 
     return (
@@ -67,12 +98,14 @@ const ShowShoe = function() {
                     <div className='colour-selector' onChange={onColourChange}>
                         <label htmlFor='colours'>Choose a colour</label>
                         <select id='colours' name='colours'>
+                            <option disabled selected value>--</option>
                             {optionColors}
                         </select>
                     </div>
                     <div className='size-selector' onChange={onSizeChange}>
                         <label htmlFor='sizes'>Choose a size</label>
-                        <select id='sizes' name='sizes'>
+                        <select disabled id='sizes' name='sizes'>
+                            <option disabled selected value>--</option>
                             {optionSizes}
                         </select>
                     </div>   
