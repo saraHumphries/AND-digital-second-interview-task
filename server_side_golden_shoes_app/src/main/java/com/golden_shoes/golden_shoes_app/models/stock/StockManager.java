@@ -66,7 +66,7 @@ public class StockManager {
         stockItem.setStockManager(this);
     }
 
-    public Order makeOrder(Customer customer, ArrayList<StockItem> orderItems) {
+    public Order makeOrder(Customer customer, List<StockItem> orderItems) {
 
         ArrayList<StockItem> itemsInStock = new ArrayList<>();
         Order order = new Order(itemsInStock, customer);
