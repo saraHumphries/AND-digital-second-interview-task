@@ -19,8 +19,14 @@ public class ShoeTypeController {
 
     @GetMapping(value = "/shoe_types")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<List<ShoeType>> getAllShoeTypesByParams(@RequestParam(name = "category", required = false) String category) {
-        if (category != null) {
+    public ResponseEntity<List<ShoeType>> getAllShoeTypesByParams(
+            @RequestParam(name = "category", required = false) String category
+            , @RequestParam(name = "stock_item_id", required = false) Long stockItemId
+    ) {
+        if (stockItemId != null && category == null) {
+            return new ResponseEntity<>(shoeTypeRepository.findShoeTypeByStockItemsId(stockItemId), HttpStatus.OK);
+        }
+        else if (category != null) {
             return new ResponseEntity<>(shoeTypeRepository.findShoeTypesByCategory(category), HttpStatus.OK);
         }
         return new ResponseEntity<>(shoeTypeRepository.findAll(), HttpStatus.OK);

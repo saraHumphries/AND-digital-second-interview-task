@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router"
 import StockService from "../services/StockService";
+import { Link } from "react-router-dom";
 
 const Bag = function() {
 
@@ -41,8 +42,12 @@ const Bag = function() {
             <div className='size-and-colour-selection'>
                 <h3 className='shoe-text'>UK SIZE {selectedSize} IN {selectedColour}</h3>
                 <h4 className='shoe-text'>ONLY {itemStock} LEFT!</h4>
-            </div> 
+            </div>
+            <Link to={{
+                pathname: '/orders'
+            }}>
             <button onClick={onBuyClick}>BUY NOW</button> 
+            </Link> 
         </div>
 
     )
