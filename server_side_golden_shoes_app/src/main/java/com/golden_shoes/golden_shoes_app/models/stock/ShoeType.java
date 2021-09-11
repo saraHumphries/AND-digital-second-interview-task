@@ -21,6 +21,9 @@ public class ShoeType {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "category")
+    private String category;
+
     @Column(name = "price")
     private Double price;
 
@@ -28,9 +31,10 @@ public class ShoeType {
     @JsonManagedReference(value = "shoe_type_stock_items")
     private List<StockItem> stockItems;
 
-    public ShoeType(String brand, String description, Double price) {
+    public ShoeType(String brand, String description, String category, Double price) {
         this.brand = brand;
         this.description = description;
+        this.category = category;
         this.price = price;
         this.stockItems = new ArrayList<>();
     }
@@ -77,5 +81,14 @@ public class ShoeType {
 
     public void setShoes(List<StockItem> stockItems) {
         this.stockItems = stockItems;
+    }
+
+    public String getCategory() {
+
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

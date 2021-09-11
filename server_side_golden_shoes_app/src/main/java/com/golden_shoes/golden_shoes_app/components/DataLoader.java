@@ -36,9 +36,9 @@ public class DataLoader implements ApplicationRunner {
         StockManager goldenShoes = new StockManager("Golden Shoes");
         stockManagerRespository.save(goldenShoes);
 
-        ShoeType adidas_trainer = new ShoeType("Adidas", "high-ankle trainers", 60.00);
+        ShoeType adidas_trainer = new ShoeType("Adidas", "high-ankle trainers", "Men", 60.00);
         shoeTypeRepository.save(adidas_trainer);
-        ShoeType doc_marten_boots = new ShoeType("Doc Marten", "heeled boot", 105.50);
+        ShoeType doc_marten_boots = new ShoeType("Doc Marten", "heeled boot", "Women", 105.50);
         shoeTypeRepository.save(doc_marten_boots);
 
         StockItem item1 = new StockItem(7, "black", doc_marten_boots, goldenShoes);

@@ -26,13 +26,12 @@ public class GoldenShoesAppApplicationTests {
 	private Customer customer;
 	private Order order;
 	private ArrayList<StockItem> stockItemsForOrder;
-	private ArrayList<StockItem> stockItemsForShoeType;
 	private StockManager stockManager;
 
 	@Before
 	public void before() {
 		stockManager = new StockManager("golden shoes");
-		adidasTrainer = new ShoeType("ADIDAS", "trainer", 45.50);
+		adidasTrainer = new ShoeType("ADIDAS", "trainer", "Men", 45.50);
 		stockItem1 = new StockItem(7, "blue", adidasTrainer, stockManager);
 		stockItem2 = new StockItem(6, "blue", adidasTrainer, stockManager);
 		stockManager.addStock(stockItem1);
