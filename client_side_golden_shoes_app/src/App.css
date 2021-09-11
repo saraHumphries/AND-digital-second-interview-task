@@ -44,6 +44,7 @@
     top: 140px;
     border-top: 1px solid lightgrey;
     width: 100%;
+    padding-top: 20px;
 }
 
 /* ShoeType */
@@ -58,9 +59,12 @@
     padding: 10px;
 }
 
+.shoe-advert-text {
+    margin-left: 5px;
+}
+
 .image-icon {
     width: 130px;
-    height: 130px;
 }
 
 .shoe-text {
@@ -69,5 +73,15 @@
 
 .shoe-description {
     font-weight: 300;
+}
+
+/* ShowShoe */
+
+.show-shoe-display {
+    padding: 20px;
+}
+
+.show-shoe-image {
+    max-width: 200px;
 }
 

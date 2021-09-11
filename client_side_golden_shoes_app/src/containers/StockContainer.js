@@ -21,12 +21,12 @@ const StockContainer = function() {
     }, [category]);
 
     const listOfShoeTypes = shoeTypes.map((shoeType) => {
-        return <ShoeType shoeType={shoeType} key={shoeType.id} stockInventory={stockInventory}></ShoeType>
+        return <ShoeType category={category} shoeType={shoeType} key={shoeType.id} stockInventory={stockInventory}></ShoeType>
     });
 
 
     return (
-        <div id='main-container'>
+        <div className='main-container'>
             <div id='shoe-type-list'>
             {listOfShoeTypes}
             </div>

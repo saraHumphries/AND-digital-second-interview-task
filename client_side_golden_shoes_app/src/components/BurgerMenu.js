@@ -7,8 +7,6 @@ const BurgerMenu = function() {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    
-
     const handleMenuClick = function(evt) {
         evt.preventDefault();
         setMenuOpen(false);

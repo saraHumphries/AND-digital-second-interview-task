@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import TopBar from './components/TopBar';
 import TitleBar from './components/TitleBar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import ShowShoe from './components/ShowShoe';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route path = '/' exact component={HomePage}></Route>
           <Route path = '/stock/:category' exact component={StockContainer}></Route>
+          <Route path = '/stock/:category/:shoeBrand/:shoe' exact component={ShowShoe}></Route>
         </Switch>
       </div>
     </Router>
