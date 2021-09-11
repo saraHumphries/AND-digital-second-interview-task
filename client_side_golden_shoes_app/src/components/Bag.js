@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router"
 import StockService from "../services/StockService";
 import { Link } from "react-router-dom";
+import OrderService from "../services/OrderService";
 
 const Bag = function() {
 
@@ -22,12 +23,15 @@ const Bag = function() {
     }, []);
 
     const onBuyClick = function() {
-        const updatedStockItem = {
-            soldStatus: true
+        const newOrder = {
+            stockItems: {
+                id: itemToBuy.id
+            },
+            customer: {
+                id: 1
+            }
         };
-        console.log('updatedItem', updatedStockItem);
-        StockService.updateStockItemToSold(itemToBuy.id, updatedStockItem)
-            .then(res => setItemToBuy(res));
+        OrderService.postOrder(newOrder);
     };
         
 
