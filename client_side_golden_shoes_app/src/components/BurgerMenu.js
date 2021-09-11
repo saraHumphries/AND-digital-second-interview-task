@@ -1,7 +1,7 @@
 import {slide as Menu} from 'react-burger-menu';
 import './BurgerMenu.css';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const BurgerMenu = function() {
 
@@ -21,18 +21,20 @@ const BurgerMenu = function() {
     return (
         <div>
             <Menu isOpen={menuOpen} onStateChange={handleStateChange}>
-                <li onClick={handleMenuClick}>
+                <li className='burger-link' onClick={handleMenuClick}>
                     <Link to={{
                         pathname: '/stock/women',
                         state: 'women'
                     }}>WOMEN</Link>
                 </li>
-                <li onClick={handleMenuClick}>
+                <li className='burger-link'  onClick={handleMenuClick}>
                     <Link to={{
                         pathname: '/stock/men',
                         state: 'men'
                     }}>MEN</Link>
                 </li>
+                <li className='burger-link' >KIDS</li>
+                <li className='burger-link' >SALE</li>
             </Menu>
         </div>
     )
