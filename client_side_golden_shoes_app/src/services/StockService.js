@@ -7,7 +7,7 @@ const StockService = {
             .then(res => res.json());
     },
 
-    getStockItemByShoeTypeId(shoeTypeId) {
+    getUnsoldStockItemByShoeTypeId(shoeTypeId) {
         return fetch(baseURL + `?shoe_type_id=${shoeTypeId}`)
             .then(res => res.json());
     }

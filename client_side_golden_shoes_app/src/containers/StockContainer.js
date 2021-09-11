@@ -10,18 +10,16 @@ const StockContainer = function() {
     const data = useLocation();
     const category = data.state;
 
-    const [stockInventory, setStockInventory] = useState([]);
+    
     const [shoeTypes, setShoeTypes] = useState([]);
 
     useEffect(() => {
-        StockService.getStockItems()
-            .then(res => setStockInventory(res));
         ShoeTypeService.getShoeTypesByCategory(category)
             .then(res => setShoeTypes(res));
     }, [category]);
 
     const listOfShoeTypes = shoeTypes.map((shoeType) => {
-        return <ShoeType category={category} shoeType={shoeType} key={shoeType.id} stockInventory={stockInventory}></ShoeType>
+        return <ShoeType category={category} shoeType={shoeType} key={shoeType.id}></ShoeType>
     });
 
     console.log(shoeTypes);

@@ -1,14 +1,14 @@
 import '../App.css';
 import { Link } from 'react-router-dom';
 
-const ShoeType = function({category, shoeType, stockInventory}) {
+const ShoeType = function({category, shoeType}) {
 
 
     return (
         <div>
             <Link to={{
                 pathname: `/stock/${category}/${shoeType.brand}/${shoeType.description}`,
-                state: {stockInventory, shoeType}
+                state: {shoeType}
                 }}>
                 <div className='shoe-display'>
                     <img className="image-icon"src={shoeType.imageUrl}></img>

@@ -15,7 +15,7 @@ const ShowShoe = function() {
     const [stockInventory, setStockInventory] = useState([]);
     
     useEffect(() => {
-        StockService.getStockItemByShoeTypeId(shoeType.id)
+        StockService.getUnsoldStockItemByShoeTypeId(shoeType.id)
             .then(res => setStockInventory(res))
     }, []);
 
@@ -28,7 +28,6 @@ const ShowShoe = function() {
         setColourOptionToSelected();
         setAvailableSizesForColour();
     },[selectedColour, selectedSize]);
-
 
 
     const getAllAvailableColours = function() {
