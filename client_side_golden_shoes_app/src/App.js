@@ -6,6 +6,7 @@ import TopBar from './components/TopBar';
 import TitleBar from './components/TitleBar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import ShowShoe from './components/ShowShoe';
+import Bag from './components/Bag';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path = '/' exact component={HomePage}></Route>
           <Route path = '/stock/:category' exact component={StockContainer}></Route>
           <Route path = '/stock/:category/:shoeBrand/:shoe' exact component={ShowShoe}></Route>
+          <Route path = '/bag' exact component={Bag}></Route>
         </Switch>
       </div>
     </Router>

@@ -22,9 +22,13 @@ public class StockItemController {
 
             @RequestParam(name = "shoe_type_id", required = false) Long shoeTypeId
             , @RequestParam(name = "sold_status", required = false) Boolean soldStatus
+            , @RequestParam(name = "colour", required = false) String colour
+            , @RequestParam(name = "size", required = false) Integer size
             ) {
-
-        if (shoeTypeId != null && soldStatus !=null) {
+        if (shoeTypeId != null && soldStatus != null && colour != null && size != null) {
+            return new ResponseEntity<>(stockItemRepository.findStockItemsByShoeTypeIdAndSoldStatusAndColourAndSize(shoeTypeId, soldStatus, colour, size), HttpStatus.OK);
+        }
+        else if (shoeTypeId != null && soldStatus !=null) {
             return new ResponseEntity<>(stockItemRepository.findStockItemsByShoeTypeIdAndSoldStatus(shoeTypeId, soldStatus), HttpStatus.OK);
         }
         else if (shoeTypeId != null) {

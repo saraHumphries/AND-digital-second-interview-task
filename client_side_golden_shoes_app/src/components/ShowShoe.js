@@ -2,6 +2,7 @@ import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import StockService from "../services/StockService";
 import '../App.css';
+import { Link } from "react-router-dom";
 
 const ShowShoe = function() {
 
@@ -109,11 +110,15 @@ const ShowShoe = function() {
                                 {optionSizes}
                             </select>
                         </div>
+                        <Link to={{
+                            pathname: '/bag',
+                            state: {selectedSize, selectedColour, shoeType}
+                        }}>
+                        <button type='submit'>ADD TO BAG</button>
+                        </Link>
                     </form>
                 </div>
-                <div className='add-to-bag-container'>
-                    <button>ADD TO BAG</button>
-                </div>
+                
             </div>
         </div>
     );

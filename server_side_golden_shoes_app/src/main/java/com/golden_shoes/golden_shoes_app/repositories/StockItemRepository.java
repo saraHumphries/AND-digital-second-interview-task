@@ -10,4 +10,6 @@ public interface StockItemRepository extends JpaRepository<StockItem, Long> {
     List<StockItem> findStockItemsByShoeTypeId(Long shoeTypeId);
 
     List<StockItem> findStockItemsByShoeTypeIdAndSoldStatus(Long shoeTypeId, Boolean soldStatus);
+
+    List<StockItem> findStockItemsByShoeTypeIdAndSoldStatusAndColourAndSize(Long shoeTypeId, Boolean soldStatus, String colour, Integer size);
 }
