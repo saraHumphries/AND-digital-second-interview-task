@@ -29,7 +29,13 @@ const ShowShoe = function() {
         setAvailableSizes(availableSizes.sort());
     }, []);
 
-    console.log(shoeType);
+    const optionColors = availableColours.map((colour) => {
+        return <option value={colour}>{colour}</option>
+    });
+
+    const optionSizes = availableSizes.map((size) => {
+        return <option value={size}>{size}</option>
+    });
 
     return (
         <div className='main-container show-shoe-display'>
@@ -42,8 +48,18 @@ const ShowShoe = function() {
 
             <div className='size-color-form-container'>
                 <form className='size-color-form'>
-                    <label for='size'>Choose a size</label>
-                        
+                    <div className='colour-selector'>
+                        <label for='colours'>Choose a colour</label>
+                        <select id='colours' name='colours'>
+                            {optionColors}
+                        </select>
+                    </div>
+                    <div className='size-selector'>
+                        <label for='sizes'>Choose a size</label>
+                        <select id='sizes' name='sizes'>
+                            {optionSizes}
+                        </select>
+                    </div>   
                 </form>
             </div>
         </div>
