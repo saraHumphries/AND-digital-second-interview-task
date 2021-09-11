@@ -1,5 +1,5 @@
-import { useLocation } from "react-router";
-import { useState } from "react/cjs/react.development";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router"
 import StockService from "../services/StockService";
 
 const Bag = function() {
@@ -11,7 +11,10 @@ const Bag = function() {
 
     const [itemToBuy, setItemToBuy] = useState({});
 
-    
+    useEffect(() => {
+        StockService.getUnsoldStockItemsByShoeTypeIdAndColourAndSize(shoeType.id, selectedColour, selectedSize)
+            .then(res => setItemToBuy(res[0]))
+    }, []);
         
 
     return (
