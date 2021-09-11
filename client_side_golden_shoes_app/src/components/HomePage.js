@@ -9,13 +9,13 @@ const HomePage = function() {
                     <li>
                         <Link to={{
                             pathname: '/stock/womens',
-                            state: 'womens'
+                            state: 'women'
                         }}>WOMENS</Link>
                     </li>
                     <li>
                         <Link to={{
                             pathname: '/stock/mens',
-                            state: 'mens'
+                            state: 'men'
                         }}>MENS</Link>
                     </li>
                 </ul>

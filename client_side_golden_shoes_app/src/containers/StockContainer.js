@@ -15,9 +15,9 @@ const StockContainer = function() {
     useEffect(() => {
         StockService.getStockItems()
             .then(res => setStockInventory(res));
-        ShoeTypeService.getShoeTypes()
+        ShoeTypeService.getShoeTypesByCategory(category)
             .then(res => setShoeTypes(res));
-    }, []);
+    }, [category]);
 
     const listOfShoeTypes = shoeTypes.map((shoeType) => {
         return <ShoeType shoeType={shoeType} key={shoeType.id} stockInventory={stockInventory}></ShoeType>
