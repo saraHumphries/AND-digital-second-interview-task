@@ -20,7 +20,7 @@ function App() {
           <Route path = '/stock/:category' exact component={StockContainer}></Route>
           <Route path = '/stock/:category/:shoeBrand/:shoe' exact component={ShowShoe}></Route>
           <Route path = '/bag' exact component={Bag}></Route>
-          <Route path= '/orders' excat component={OrdersSummary}></Route>
+          <Route path= '/orders' exact component={OrdersSummary}></Route>
         </Switch>
       </div>
     </Router>

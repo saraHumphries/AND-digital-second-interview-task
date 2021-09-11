@@ -24,9 +24,9 @@ const Bag = function() {
 
     const onBuyClick = function() {
         const newOrder = {
-            stockItems: {
+            stockItems: [{
                 id: itemToBuy.id
-            },
+            }],
             customer: {
                 id: 1
             }
@@ -47,11 +47,12 @@ const Bag = function() {
                 <h3 className='shoe-text'>UK SIZE {selectedSize} IN {selectedColour}</h3>
                 <h4 className='shoe-text'>ONLY {itemStock} LEFT!</h4>
             </div>
-            <Link to={{
-                pathname: '/orders'
+            {/* <Link to={{
+                pathname: '/thank_you'
             }}>
             <button onClick={onBuyClick}>BUY NOW</button> 
-            </Link> 
+            </Link>  */}
+            <a href='/orders'><button onClick={onBuyClick}>BUY NOW</button></a>
         </div>
 
     )
