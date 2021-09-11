@@ -1,8 +1,13 @@
 
-const ShoeType = function() {
+const ShoeType = function({shoeType, stockInventory}) {
     return (
         <div>
-            <h2>Shoe type</h2>
+            <li>
+                <p>image</p>
+                <h3>{shoeType.brand}</h3>
+                <h4>{shoeType.description}</h4>
+                <h4>£{shoeType.price}</h4>
+            </li>
         </div>
     );
 };
