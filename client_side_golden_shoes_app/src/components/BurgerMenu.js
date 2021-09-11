@@ -19,6 +19,7 @@ const BurgerMenu = function() {
     return (
         <div>
             <Menu isOpen={menuOpen} onStateChange={handleStateChange}>
+                <li className='burger-link'><a href='/'>HOME</a></li>
                 <li className='burger-link' onClick={handleMenuClick}>
                     <Link to={{
                         pathname: '/stock/women',
