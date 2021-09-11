@@ -1,18 +1,33 @@
 import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
+import StockService from "../services/StockService";
+import StockContainer from "../containers/StockContainer";
 
 const ShowShoe = function() {
 
     const data = useLocation();
     const shoeType = data.state.shoeType;
-    const stockInventory = data.state.stockInventory;
 
     const [availableColours, setAvailableColours] = useState([]);
     const [availableSizes, setAvailableSizes] = useState([]);
     const [selectedColour, setSelectedColour] = useState(null);
     const [selectedSize, setSelectedSize] = useState(null);
+    const [stockInventory, setStockInventory] = useState([]);
     
     useEffect(() => {
+        StockService.getStockItemByShoeTypeId(shoeType.id)
+            .then(res => setStockInventory(res))
+            .then(evt => getAllAvailableSizesandColours());
+    }, []);
+
+    const getAllAvailableSizesandColours = function() {
+        const availableSizes = [];
+        for (const stockItem of stockInventory) {
+            if (!availableSizes.includes(stockItem.size)) {
+                availableSizes.push(stockItem.size);
+            }
+        }
+        setAvailableSizes(availableSizes);
         const availableColours = [];
         for (const stockItem of stockInventory) {
             if (!availableColours.includes(stockItem.colour)) {
@@ -20,14 +35,7 @@ const ShowShoe = function() {
             }
         }
         setAvailableColours(availableColours);
-        const availableSizes = [];
-        for (const stockItem of stockInventory) {
-            if (!availableSizes.includes(stockItem.size)) {
-                availableSizes.push(stockItem.size);
-            }
-        }
-        setAvailableSizes(availableSizes.sort());
-    }, []);
+    };
 
     const optionColors = availableColours.map((colour) => {
         return <option value={colour}>{colour}</option>
@@ -38,27 +46,11 @@ const ShowShoe = function() {
     });
 
     const onColourChange = function() {
-        const selectedColourInput = document.getElementById('colours');
-        setSelectedColour(selectedColourInput.value);
-        const availableSizes = [];
-        for (const stockItem of stockInventory) {
-            if(!availableSizes.includes(stockItem.size) && stockItem.colour == selectedColour) {
-                availableSizes.push(stockItem.size);
-            }
-        }
-        setAvailableSizes(availableSizes);
+        
     };
 
     const onSizeChange = function() {
-        const selectedSizeInput = document.getElementById('sizes');
-        setSelectedSize(selectedSizeInput.value);
-        const availableColours = [];
-        for (const stockItem of stockInventory) {
-            if(!availableColours.includes(stockItem.colour) && stockItem.size == selectedSize) {
-                availableColours.push(stockItem.colour);
-            }
-        }
-        setAvailableSizes(availableColours);
+        
     };
 
     return (
