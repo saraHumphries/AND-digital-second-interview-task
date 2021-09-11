@@ -43,11 +43,11 @@ const ShowShoe = function() {
     };
 
     const optionColors = availableColours.map((colour) => {
-        return <option value={colour}>{colour}</option>
+        return <option className='option-text' value={colour}>{colour}</option>
     });
 
     const optionSizes = availableSizes.map((size) => {
-        return <option value={size}>{size}</option>
+        return <option className='option-text' value={size}>{size}</option>
     });
 
     const onColourChange = function() {
@@ -98,15 +98,15 @@ const ShowShoe = function() {
                     <form className='size-color-form'>
                         <div className='colour-selector selector' onChange={onColourChange}>
                             <label htmlFor='colours'>Choose a colour</label>
-                            <select id='colours' name='colours'>
-                                <option disabled selected value>--</option>
+                            <select id='colours' className='input-box' name='colours'>
+                                <option className='option-text' disabled selected value>--</option>
                                 {optionColors}
                             </select>
                         </div>
                         <div className='size-selector selector' onChange={onSizeChange}>
                             <label htmlFor='sizes'>Choose a size</label>
-                            <select disabled id='sizes' name='sizes'>
-                                <option disabled selected value>--</option>
+                            <select disabled className='input-box' id='sizes' name='sizes'>
+                                <option className='option-text' disabled selected value>--</option>
                                 {optionSizes}
                             </select>
                         </div>
