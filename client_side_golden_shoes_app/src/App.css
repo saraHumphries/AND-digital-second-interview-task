@@ -48,8 +48,14 @@
 
 /* ShoeType */
 
+#shoe-type-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .shoe-display {
-    list-style: none;
+    padding: 10px;
 }
 
 .image-icon {
@@ -57,4 +63,11 @@
     height: 130px;
 }
 
+.shoe-text {
+    margin: 5px;
+}
+
+.shoe-description {
+    font-weight: 300;
+}
 

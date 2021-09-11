@@ -26,10 +26,10 @@ const StockContainer = function() {
 
 
     return (
-        <div className='main-container'>
-            <ul>
+        <div id='main-container'>
+            <div id='shoe-type-list'>
             {listOfShoeTypes}
-            </ul>
+            </div>
             
         </div>
     );
