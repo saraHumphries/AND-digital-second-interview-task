@@ -1,15 +1,11 @@
 
-
+import '../App.css';
 
 
 const HomePage = function() {
     return (
-        <div>
-            <div id='categories-list'>
-                <ul>
-                    
-                </ul>
-            </div>
+        <div className='main-container'>
+            <h2>HomePage</h2>
             
         </div>
     );

@@ -23,3 +23,12 @@
     left: 80px;
     top: 60px; 
 }
+
+/* main containers */
+
+.main-container {
+    position: fixed;
+    top: 140px;
+}
+
+

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import ShoeType from "../components/ShoeType";
 import ShoeTypeService from "../services/ShoeTypeService";
 import { useLocation } from "react-router";
+import '../App.css';
 
 const StockContainer = function() {
 
@@ -25,7 +26,7 @@ const StockContainer = function() {
 
 
     return (
-        <div>
+        <div className='main-container'>
             <ul>
             {listOfShoeTypes}
             </ul>
