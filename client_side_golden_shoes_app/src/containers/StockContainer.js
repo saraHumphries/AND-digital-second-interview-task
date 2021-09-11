@@ -24,6 +24,8 @@ const StockContainer = function() {
         return <ShoeType category={category} shoeType={shoeType} key={shoeType.id} stockInventory={stockInventory}></ShoeType>
     });
 
+    console.log(shoeTypes);
+
 
     return (
         <div className='main-container'>

@@ -9,7 +9,7 @@ const ShowShoe = function() {
 
     const [availableColours, setAvailableColours] = useState([]);
     const [availableSizes, setAvailableSizes] = useState([]);
-    const [selectedColor, setSelectedColour] = useState(null);
+    const [selectedColour, setSelectedColour] = useState(null);
     const [selectedSize, setSelectedSize] = useState(null);
     
     useEffect(() => {
@@ -37,6 +37,30 @@ const ShowShoe = function() {
         return <option value={size}>{size}</option>
     });
 
+    const onColourChange = function() {
+        const selectedColourInput = document.getElementById('colours');
+        setSelectedColour(selectedColourInput.value);
+        const availableSizes = [];
+        for (const stockItem of stockInventory) {
+            if(!availableSizes.includes(stockItem.size) && stockItem.colour == selectedColour) {
+                availableSizes.push(stockItem.size);
+            }
+        }
+        setAvailableSizes(availableSizes);
+    };
+
+    const onSizeChange = function() {
+        const selectedSizeInput = document.getElementById('sizes');
+        setSelectedSize(selectedSizeInput.value);
+        const availableColours = [];
+        for (const stockItem of stockInventory) {
+            if(!availableColours.includes(stockItem.colour) && stockItem.size == selectedSize) {
+                availableColours.push(stockItem.colour);
+            }
+        }
+        setAvailableSizes(availableColours);
+    };
+
     return (
         <div className='main-container show-shoe-display'>
             <div className='shoe-display'>
@@ -48,14 +72,14 @@ const ShowShoe = function() {
 
             <div className='size-color-form-container'>
                 <form className='size-color-form'>
-                    <div className='colour-selector'>
-                        <label for='colours'>Choose a colour</label>
+                    <div className='colour-selector' onChange={onColourChange}>
+                        <label htmlFor='colours'>Choose a colour</label>
                         <select id='colours' name='colours'>
                             {optionColors}
                         </select>
                     </div>
-                    <div className='size-selector'>
-                        <label for='sizes'>Choose a size</label>
+                    <div className='size-selector' onChange={onSizeChange}>
+                        <label htmlFor='sizes'>Choose a size</label>
                         <select id='sizes' name='sizes'>
                             {optionSizes}
                         </select>
