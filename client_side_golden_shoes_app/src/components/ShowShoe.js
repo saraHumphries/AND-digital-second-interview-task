@@ -15,7 +15,7 @@ const ShowShoe = function() {
     const [stockInventory, setStockInventory] = useState([]);
     
     useEffect(() => {
-        StockService.getUnsoldStockItemByShoeTypeId(shoeType.id)
+        StockService.getUnsoldStockItemsByShoeTypeId(shoeType.id)
             .then(res => setStockInventory(res))
     }, []);
 

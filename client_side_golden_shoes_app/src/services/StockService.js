@@ -7,8 +7,13 @@ const StockService = {
             .then(res => res.json());
     },
 
-    getUnsoldStockItemByShoeTypeId(shoeTypeId) {
+    getStockItemsByShoeTypeId(shoeTypeId) {
         return fetch(baseURL + `?shoe_type_id=${shoeTypeId}`)
+            .then(res => res.json());
+    },
+
+    getUnsoldStockItemsByShoeTypeId(shoeTypeId) {
+        return fetch(baseURL + `?shoe_type_id=${shoeTypeId}&sold_status=false`)
             .then(res => res.json());
     }
 };
