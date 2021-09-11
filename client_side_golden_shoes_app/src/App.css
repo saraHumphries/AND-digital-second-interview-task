@@ -46,4 +46,15 @@
     width: 100%;
 }
 
+/* ShoeType */
+
+.shoe-display {
+    list-style: none;
+}
+
+.image-icon {
+    width: 130px;
+    height: 130px;
+}
+
 
