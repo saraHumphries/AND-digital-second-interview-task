@@ -1,0 +1,25 @@
+
+/* TopBar */
+
+#top-bar {
+    display: flex;
+    justify-content: space-around;
+}
+
+#top-bar > a {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 20px;
+    flex-grow: 1;
+    border: 2px solid white;
+}
+
+/* TitleBar */
+
+#shop-title {
+    position: fixed;
+    left: 80px;
+    top: 60px; 
+}
