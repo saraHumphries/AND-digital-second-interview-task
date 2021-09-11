@@ -24,6 +24,9 @@ public class ShoeType {
     @Column(name = "category")
     private String category;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @Column(name = "price")
     private Double price;
 
@@ -31,10 +34,11 @@ public class ShoeType {
     @JsonManagedReference(value = "shoe_type_stock_items")
     private List<StockItem> stockItems;
 
-    public ShoeType(String brand, String description, String category, Double price) {
+    public ShoeType(String brand, String description, String category, String imageUrl, Double price) {
         this.brand = brand;
         this.description = description;
         this.category = category;
+        this.imageUrl = imageUrl;
         this.price = price;
         this.stockItems = new ArrayList<>();
     }
@@ -90,5 +94,21 @@ public class ShoeType {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public List<StockItem> getStockItems() {
+        return stockItems;
+    }
+
+    public void setStockItems(List<StockItem> stockItems) {
+        this.stockItems = stockItems;
     }
 }

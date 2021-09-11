@@ -31,7 +31,7 @@ public class GoldenShoesAppApplicationTests {
 	@Before
 	public void before() {
 		stockManager = new StockManager("golden shoes");
-		adidasTrainer = new ShoeType("ADIDAS", "trainer", "Men", 45.50);
+		adidasTrainer = new ShoeType("ADIDAS", "trainer", "Men", "image url", 45.50);
 		stockItem1 = new StockItem(7, "blue", adidasTrainer, stockManager);
 		stockItem2 = new StockItem(6, "blue", adidasTrainer, stockManager);
 		stockManager.addStock(stockItem1);
