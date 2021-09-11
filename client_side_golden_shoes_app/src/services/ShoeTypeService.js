@@ -5,6 +5,11 @@ const ShoeTypeService = {
     getShoeTypes() {
         return fetch(baseURL)
             .then(res => res.json());
+    },
+
+    getShoeTypesByCategory(category) {
+        return fetch(baseURL + `?category=${category}`)
+            .then(res => res.json());
     }
 };
 

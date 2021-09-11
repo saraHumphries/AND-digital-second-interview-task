@@ -14,7 +14,7 @@ function App() {
         <NavBar></NavBar>
         <Switch>
           <Route path = '/' exact component={HomePage}></Route>
-          <Route path = '/stock' exact component={StockContainer}></Route>
+          <Route path = '/stock/:category' exact component={StockContainer}></Route>
         </Switch>
       </div>
     </Router>
