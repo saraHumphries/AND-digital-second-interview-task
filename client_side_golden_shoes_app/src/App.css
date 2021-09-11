@@ -85,3 +85,19 @@
     max-width: 200px;
 }
 
+
+.selector {
+    padding: 10px;
+}
+
+button {
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+    background-color: #00dc55;
+    border: 1px solid #00dc55;  
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    font-size: large;
+}
