@@ -20,6 +20,17 @@ const StockService = {
     getUnsoldStockItemsByShoeTypeIdAndColourAndSize(shoeTypeId, colour, size) {
         return fetch(baseURL + `?shoe_type_id=${shoeTypeId}&sold_status=false&colour=${colour}&size=${size}`)
             .then(res => res.json());
+    },
+
+    updateStockItemToSold(stockItemId, updatedStockItem) {
+        return fetch(baseURL + `/${stockItemId}`, {
+            method: 'PUT',
+            body: JSON.stringify(updatedStockItem),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json());
     }
 };
 

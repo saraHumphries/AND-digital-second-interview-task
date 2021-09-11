@@ -10,11 +10,24 @@ const Bag = function() {
     const selectedSize = data.state.selectedSize;
 
     const [itemToBuy, setItemToBuy] = useState({});
+    const [itemStock, setItemStock] = useState(null);
 
     useEffect(() => {
         StockService.getUnsoldStockItemsByShoeTypeIdAndColourAndSize(shoeType.id, selectedColour, selectedSize)
-            .then(res => setItemToBuy(res[0]))
+            .then((res) => {
+                setItemToBuy(res[0]);
+                setItemStock(res.length);
+            });
     }, []);
+
+    const onBuyClick = function() {
+        const updatedStockItem = {
+            soldStatus: true
+        };
+        console.log('updatedItem', updatedStockItem);
+        StockService.updateStockItemToSold(itemToBuy.id, updatedStockItem)
+            .then(res => setItemToBuy(res));
+    };
         
 
     return (
@@ -26,8 +39,10 @@ const Bag = function() {
                 <h5 className='price shoe-text'>£{shoeType.price}</h5>
             </div>
             <div className='size-and-colour-selection'>
-                <h5 className='shoe-text'>Size {selectedSize} in {selectedColour}</h5>
-            </div>  
+                <h3 className='shoe-text'>UK SIZE {selectedSize} IN {selectedColour}</h3>
+                <h4 className='shoe-text'>ONLY {itemStock} LEFT!</h4>
+            </div> 
+            <button onClick={onBuyClick}>BUY NOW</button> 
         </div>
 
     )
