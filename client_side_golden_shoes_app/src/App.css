@@ -133,6 +133,17 @@ button {
     padding-left: 20px;
 }
 
+.order-title {
+    margin-bottom: 5px;
+}
+
+.tracking-button {
+    width: 120px;
+    height: 20px;
+    font-size: xx-small;
+    margin-left: 0;
+}
+
 
 
 .small-image {

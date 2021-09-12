@@ -23,11 +23,11 @@ const Order = function({order}) {
         return statuses;
     };
 
-    console.log(getStatuses());
 
     return (
         <div className='whole-order'>
-            <h5>ORDER {order.id} -- PLACED ON {order.orderDate} FOR £{order.totalCost}</h5>
+            <h5 className='order-title'>ORDER {order.id} -- PLACED ON {order.orderDate} FOR £{order.totalCost}</h5>
+            <button className='tracking-button'>GET TRACKING INFO</button>
             <p>DELIVERY ADDRESS: {order.customer.address}</p>
             {orderItems}
             <p>{getStatuses().dispatchedText}</p>
