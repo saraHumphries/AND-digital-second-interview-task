@@ -37,8 +37,6 @@ const ShowShoe = function() {
             .then((res) => {
                 setItemStock(res.length);
             });
-        console.log('size and colour', selectedColour, selectedSize);
-        console.log('size and colour', typeof selectedColour, typeof selectedSize);
         
     },[selectedColour, selectedSize]);
 
@@ -122,13 +120,15 @@ const ShowShoe = function() {
                                 {optionSizes}
                             </select>
                         </div>
-                        {itemStock? <h4 className='shoe-text'>HURRY, ONLY {itemStock} LEFT!</h4>: null}
-                        <Link to={{
+                        {itemStock? <h4 className='shoe-text'>HURRY, ONLY {itemStock} LEFT!</h4>:
+                            <h4 className='shoe-text'>SELECT SIZE AND COLOUR</h4>
+                        }
+                        {itemStock? <Link to={{
                             pathname: '/bag',
                             state: {selectedSize, selectedColour, shoeType}
                         }}>
                         <button type='submit'>ADD TO BAG</button>
-                        </Link>
+                        </Link>: null}
                     </form>
                 </div>
                 
