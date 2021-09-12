@@ -42,7 +42,7 @@ public class OrderController {
 
     @PostMapping(value = "/orders")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
+    public ResponseEntity<Order> createOrder(@RequestBody Order order) throws Exception {
 
         Customer customer = customerRepository.findCustomerById(order.getCustomer().getId());
         List<StockItem> stockItems = new ArrayList<>();

@@ -79,7 +79,7 @@ public class GoldenShoesAppApplicationTests {
 
 
 	@Test
-	public void stockMangerCanMakeSale() {
+	public void stockMangerCanMakeSale() throws Exception {
 		ArrayList<StockItem> orderItems;
 		orderItems = new ArrayList<>();
 		orderItems.add(stockItem1);
@@ -88,13 +88,12 @@ public class GoldenShoesAppApplicationTests {
 		assertEquals(stockItem1.getSoldStatus(), true);
 	}
 
-	@Test
-	public void stockMangerCannotSellOutOfStock() {
+	@Test(expected = Exception.class)
+	public void stockMangerCannotSellOutOfStock() throws Exception {
 		stockManager.sellStock(stockItem1);
 		ArrayList<StockItem> orderItems = new ArrayList<>();
 		orderItems.add(stockItem1);
-		Order newOrder = stockManager.makeOrder(customer, orderItems);
-		assertEquals(newOrder.getStockItems().size(), 0);
+		stockManager.makeOrder(customer, orderItems);
 	}
 
 	@Test
@@ -103,7 +102,7 @@ public class GoldenShoesAppApplicationTests {
 	}
 
 	@Test
-	public void stockItemHasOrder() {
+	public void stockItemHasOrder() throws Exception {
 		ArrayList<StockItem> orderItems = new ArrayList<>();
 		StockItem item5 = new StockItem(5, "white", adidasTrainer, stockManager);
 		orderItems.add(item5);

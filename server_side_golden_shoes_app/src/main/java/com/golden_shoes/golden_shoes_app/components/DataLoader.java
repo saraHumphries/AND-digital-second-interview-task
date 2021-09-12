@@ -47,6 +47,8 @@ public class DataLoader implements ApplicationRunner {
         shoeTypeRepository.save(clarksShoe);
         ShoeType converseHiTop = new ShoeType("CONVERSE", "ALL STAR HI TOP", "men", "https://d2ob0iztsaxy5v.cloudfront.net/product/340140/3401401070_zm.jpg", 57.00);
         shoeTypeRepository.save(converseHiTop);
+        StockItem item13 = new StockItem(5, "grey", clarksShoe, goldenShoes);
+        stockItemRepository.save(item13);
 
         StockItem item1 = new StockItem(7, "black", docMartenBoots, goldenShoes);
         stockItemRepository.save(item1);

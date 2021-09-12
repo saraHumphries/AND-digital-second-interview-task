@@ -67,7 +67,7 @@ public class StockManager {
         stockItem.setStockManager(this);
     }
 
-    public Order makeOrder(Customer customer, List<StockItem> orderItems) {
+    public Order makeOrder(Customer customer, List<StockItem> orderItems) throws Exception {
 
         ArrayList<StockItem> itemsInStock = new ArrayList<>();
         Order order = new Order(itemsInStock, customer, LocalDate.now(), 0.00);
@@ -80,8 +80,9 @@ public class StockManager {
                 order.setTotalCost(order.getTotalCost() + stockItem.getShoeType().getPrice());
             }
         }
-
-        return order;
+        if (itemsInStock.size() > 0) {
+            return order;
+        } else throw new Exception("Order not created");
     }
 
 
