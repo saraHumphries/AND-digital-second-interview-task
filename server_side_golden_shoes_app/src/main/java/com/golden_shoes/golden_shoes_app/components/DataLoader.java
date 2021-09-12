@@ -11,6 +11,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Component
@@ -92,12 +93,17 @@ public class DataLoader implements ApplicationRunner {
         orderList1.add(item2);
         orderList1.add(item12);
         Order order1 = goldenShoes.makeOrder(customer1, orderList1);
+        order1.setOrderDate(LocalDate.parse("2021-08-12"));
+        order1.setDispatchedStatus(true);
+        order1.setDeliveredStatus(true);
         orderRepository.save(order1);
 
 
         ArrayList<StockItem> orderList2 = new ArrayList<>();
         orderList2.add(item3);
         Order order2 = goldenShoes.makeOrder(customer1, orderList2);
+        order2.setOrderDate(LocalDate.parse("2021-09-12"));
+        order2.setDispatchedStatus(true);
         orderRepository.save(order2);
 
         stockItemRepository.save(item2);

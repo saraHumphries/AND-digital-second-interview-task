@@ -5,6 +5,7 @@ import com.golden_shoes.golden_shoes_app.models.customers.Customer;
 import com.golden_shoes.golden_shoes_app.models.orders.Order;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +70,7 @@ public class StockManager {
     public Order makeOrder(Customer customer, List<StockItem> orderItems) {
 
         ArrayList<StockItem> itemsInStock = new ArrayList<>();
-        Order order = new Order(itemsInStock, customer);
+        Order order = new Order(itemsInStock, customer, LocalDate.now());
 
         for (StockItem stockItem : orderItems) {
             if (!stockItem.getSoldStatus()) {

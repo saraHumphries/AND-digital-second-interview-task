@@ -36,7 +36,7 @@ const Bag = function() {
         
 
     return (
-        <div>
+        <div className='whole-bag'>
             <div className='shoe-display'>
             <img className="show-shoe-image"src={shoeType.imageUrl}></img>
                 <h3 className='brand-name shoe-text'>{shoeType.brand}</h3>
@@ -47,11 +47,6 @@ const Bag = function() {
                 <h3 className='shoe-text'>UK SIZE {selectedSize} IN {selectedColour}</h3>
                 <h4 className='shoe-text'>ONLY {itemStock} LEFT!</h4>
             </div>
-            {/* <Link to={{
-                pathname: '/thank_you'
-            }}>
-            <button onClick={onBuyClick}>BUY NOW</button> 
-            </Link>  */}
             <a href='/orders'><button onClick={onBuyClick}>BUY NOW</button></a>
         </div>
 

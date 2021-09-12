@@ -11,7 +11,9 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -39,7 +41,7 @@ public class GoldenShoesAppApplicationTests {
 		stockItemsForOrder = new ArrayList<>();
 		stockItemsForOrder.add(stockItem1);
 		customer = new Customer("Sara", "1, Road");
-		order = new Order(stockItemsForOrder, customer);
+		order = new Order(stockItemsForOrder, customer, LocalDate.parse("2021-08-15"));
 	}
 
 	@Test

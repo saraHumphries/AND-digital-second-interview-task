@@ -3,8 +3,11 @@ package com.golden_shoes.golden_shoes_app.models.orders;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.golden_shoes.golden_shoes_app.models.customers.Customer;
 import com.golden_shoes.golden_shoes_app.models.stock.StockItem;
+import org.apache.tomcat.jni.Local;
 
+import java.time.LocalDate;
 import javax.persistence.*;
+
 import java.util.List;
 
 @Entity
@@ -24,17 +27,22 @@ public class Order {
     @JsonIgnoreProperties(value = "orders")
     private Customer customer;
 
+    @Column(name = "orderDate")
+    private LocalDate orderDate;
+
     @Column(name = "dispatched_status")
     private Boolean dispatchedStatus;
 
     @Column(name = "delivered_status")
     private Boolean deliveredStatus;
 
-    public Order(List<StockItem> stockItems, Customer customer) {
+    public Order(List<StockItem> stockItems, Customer customer, LocalDate orderDate) {
         this.stockItems = stockItems;
         this.customer = customer;
+        this.orderDate = orderDate;
         this.dispatchedStatus = false;
         this.deliveredStatus = false;
+
     }
 
     public Order() {
@@ -78,5 +86,13 @@ public class Order {
 
     public void setDeliveredStatus(Boolean deliveredStatus) {
         this.deliveredStatus = deliveredStatus;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
     }
 }

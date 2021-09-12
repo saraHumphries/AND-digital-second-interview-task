@@ -1,6 +1,6 @@
 import OrderItem from "./OrderItem";
 
-const Orders = function({order}) {
+const Order = function({order}) {
 
     const orderItems = order.stockItems.map((orderItem) => {
         return <OrderItem orderItem = {orderItem} key={orderItem.id}></OrderItem>
@@ -18,4 +18,4 @@ const Orders = function({order}) {
     );
 
 };
-export default Orders;
+export default Order;
