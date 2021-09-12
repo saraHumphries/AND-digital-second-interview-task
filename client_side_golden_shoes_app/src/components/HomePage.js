@@ -5,8 +5,21 @@ import '../App.css';
 const HomePage = function() {
     return (
         <div className='main-container'>
-            <h2>HomePage</h2>
-            
+
+            <section className='whole-advert'>
+                <h3 className='advert-title' id='advert-1-title'>NEW SHOES IN</h3>
+                <div className='advert-action' id='advert-1-action'>
+                    <button className='action-button'>SHOP NOW</button>
+                </div>
+            </section>
+
+            <section className='whole-advert'>
+                <h3 className='advert-title' id='advert-2-title'>WEEKLY EMAIL DEALS</h3>
+                <div className='advert-action' id='advert-2-action'>
+                    <button className='action-button'>SIGN UP</button>
+                </div>
+            </section>
+
         </div>
     );
 };
