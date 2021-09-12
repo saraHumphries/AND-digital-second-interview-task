@@ -1,8 +1,13 @@
 /* Whole app */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 
-#whole-app {
+body {
     font-family: 'Montserrat', sans-serif;
+    min-width: 350px;
+}
+a {
+    text-decoration: none;
+    color: white;
 }
 
 
@@ -25,10 +30,7 @@
     font-weight: bold;
 }
 
-#track-orders-link {
-    text-decoration: none;
-    color: white;
-}
+
 
 /* TitleBar */
 
@@ -40,7 +42,8 @@
     width: max-content;
     padding: 5px;
     border-top: 2px solid goldenrod;
-    border-bottom: 2px solid goldenrod
+    border-bottom: 2px solid goldenrod;
+    color: black;
 }
 
 
@@ -167,9 +170,12 @@ button {
     border-bottom: 1px solid grey;
     margin-left: 20px;
     margin-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.whole-order > p {
+.whole-order > div > p {
     font-weight: bold;
     font-size: x-small;
     margin: 5px;

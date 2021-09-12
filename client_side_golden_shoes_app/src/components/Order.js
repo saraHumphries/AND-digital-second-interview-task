@@ -26,12 +26,17 @@ const Order = function({order}) {
 
     return (
         <div className='whole-order'>
-            <h5 className='order-title'>ORDER {order.id} -- PLACED ON {order.orderDate} FOR £{order.totalCost}</h5>
-            <button className='tracking-button'>GET TRACKING INFO</button>
-            <p>DELIVERY ADDRESS: {order.customer.address}</p>
-            {orderItems}
-            <p>{getStatuses().dispatchedText}</p>
-            <p>{getStatuses().deliveredText}</p>
+            <div>
+                <h5 className='order-title'>ORDER {order.id} -- PLACED ON {order.orderDate} FOR £{order.totalCost}</h5>
+                <button className='tracking-button'>GET TRACKING INFO</button>
+                <p>DELIVERY ADDRESS: {order.customer.address}</p>
+            </div>
+            
+            <div>{orderItems}</div>
+            <div>
+                <p>{getStatuses().dispatchedText}</p>
+                <p>{getStatuses().deliveredText}</p>
+            </div>
             
             
         </div>

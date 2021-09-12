@@ -12,7 +12,7 @@ import OrdersSummary from './components/OrdersSummary';
 function App() {
   return (
     <Router>
-      <div id="whole-app">
+      <body id="whole-app">
         <TopBar></TopBar>
         <TitleBar></TitleBar>
         <Switch>
@@ -22,7 +22,7 @@ function App() {
           <Route path = '/bag' exact component={Bag}></Route>
           <Route path= '/orders' exact component={OrdersSummary}></Route>
         </Switch>
-      </div>
+      </body>
     </Router>
   );
 }
