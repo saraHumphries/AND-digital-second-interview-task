@@ -16,10 +16,13 @@ const OrderItem = function({orderItem}) {
         <div>
             <div className='ordered-item-shoe-type'>
             <div className='shoe-display order-shoe-display'>
-                <h3 className='brand-name shoe-text'>{itemShoeType.brand}</h3>
-                <h5 className='shoe-description shoe-text'>{itemShoeType.description}</h5>
-                <h5 className='price shoe-text'>£{itemShoeType.price}</h5>
-                <h5>SIZE {orderItem.size} IN {orderItem.colour}</h5>
+            <img className="show-shoe-image order-shoe-image"src={itemShoeType.imageUrl}></img>
+                <div>
+                    <h6 className='brand-name shoe-text'>{itemShoeType.brand} (size {orderItem.size} IN {orderItem.colour})</h6>
+                    <h6 className='shoe-description shoe-text'>{itemShoeType.description}</h6>
+                    <h6 className='price shoe-text'>£{itemShoeType.price}</h6>
+                </div>
+                
             </div>
             </div>
         </div>

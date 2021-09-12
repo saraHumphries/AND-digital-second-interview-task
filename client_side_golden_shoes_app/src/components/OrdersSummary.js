@@ -13,13 +13,16 @@ const OrdersSummary = function() {
             .then(res => setOrders(res));
     }, []);
 
-    const orderItems = orders.map((order) => {
+    const ordersList = orders.map((order) => {
         return <Orders order = {order} key = {order.id}></Orders>
     });
 
     return (
        <div>
-           {orderItems}
+           <header className="order-header">
+                <h3>YOUR RECENT ORDERS</h3>
+           </header>
+           {ordersList}
        </div>
     );
 };

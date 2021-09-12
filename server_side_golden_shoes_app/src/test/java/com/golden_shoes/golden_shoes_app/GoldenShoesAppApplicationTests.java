@@ -41,7 +41,7 @@ public class GoldenShoesAppApplicationTests {
 		stockItemsForOrder = new ArrayList<>();
 		stockItemsForOrder.add(stockItem1);
 		customer = new Customer("Sara", "1, Road");
-		order = new Order(stockItemsForOrder, customer, LocalDate.parse("2021-08-15"));
+		order = new Order(stockItemsForOrder, customer, LocalDate.parse("2021-08-15"), 100.00);
 	}
 
 	@Test

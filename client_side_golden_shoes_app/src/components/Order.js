@@ -6,13 +6,17 @@ const Order = function({order}) {
         return <OrderItem orderItem = {orderItem} key={orderItem.id}></OrderItem>
     });
 
+    
+
 
     return (
         <div className='whole-order'>
-            <h4>YOUR ORDER CONTAINS</h4>
+            <h5>ORDER PLACED ON {order.orderDate} FOR £{order.totalCost}</h5>
+            <p>DELIVERY ADDRESS: {order.customer.address}</p>
+            <p>DISPATCHED: {order.dispatchedStatus}</p>
+            <p>ORDER CONTAINS</p>
             {orderItems}
-            <h4>DELIVERING TO ADDRESS</h4>
-            <h3>{order.customer.address}</h3>
+            
             
         </div>
     );

@@ -30,16 +30,20 @@ public class Order {
     @Column(name = "orderDate")
     private LocalDate orderDate;
 
+    @Column(name = "totalCost")
+    private Double totalCost;
+
     @Column(name = "dispatched_status")
     private Boolean dispatchedStatus;
 
     @Column(name = "delivered_status")
     private Boolean deliveredStatus;
 
-    public Order(List<StockItem> stockItems, Customer customer, LocalDate orderDate) {
+    public Order(List<StockItem> stockItems, Customer customer, LocalDate orderDate, Double totalCost) {
         this.stockItems = stockItems;
         this.customer = customer;
         this.orderDate = orderDate;
+        this.totalCost = totalCost;
         this.dispatchedStatus = false;
         this.deliveredStatus = false;
 
@@ -94,5 +98,13 @@ public class Order {
 
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public Double getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(Double totalCost) {
+        this.totalCost = totalCost;
     }
 }

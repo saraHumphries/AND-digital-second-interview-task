@@ -70,13 +70,14 @@ public class StockManager {
     public Order makeOrder(Customer customer, List<StockItem> orderItems) {
 
         ArrayList<StockItem> itemsInStock = new ArrayList<>();
-        Order order = new Order(itemsInStock, customer, LocalDate.now());
+        Order order = new Order(itemsInStock, customer, LocalDate.now(), 0.00);
 
         for (StockItem stockItem : orderItems) {
             if (!stockItem.getSoldStatus()) {
                 this.sellStock(stockItem);
                 itemsInStock.add(stockItem);
                 stockItem.setOrder(order);
+                order.setTotalCost(order.getTotalCost() + stockItem.getShoeType().getPrice());
             }
         }
 
