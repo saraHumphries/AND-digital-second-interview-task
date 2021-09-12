@@ -11,16 +11,16 @@ const Bag = function() {
     const selectedColour = data.state.selectedColour;
     const selectedSize = data.state.selectedSize;
 
+    
     const [itemToBuy, setItemToBuy] = useState({});
-    const [itemStock, setItemStock] = useState(null);
 
     useEffect(() => {
         StockService.getUnsoldStockItemsByShoeTypeIdAndColourAndSize(shoeType.id, selectedColour, selectedSize)
             .then((res) => {
                 setItemToBuy(res[0]);
-                setItemStock(res.length);
             });
     }, []);
+    
 
     const onBuyClick = function() {
         const newOrder = {
@@ -45,7 +45,7 @@ const Bag = function() {
             </div>
             <div className='size-and-colour-selection'>
                 <h3 className='shoe-text'>UK SIZE {selectedSize} IN {selectedColour}</h3>
-                <h4 className='shoe-text'>ONLY {itemStock} LEFT!</h4>
+                
             </div>
             <a href='/orders'><button onClick={onBuyClick}>BUY NOW</button></a>
         </div>

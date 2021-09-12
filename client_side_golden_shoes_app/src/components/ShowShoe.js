@@ -14,6 +14,11 @@ const ShowShoe = function() {
     const [selectedColour, setSelectedColour] = useState(null);
     const [selectedSize, setSelectedSize] = useState(null);
     const [stockInventory, setStockInventory] = useState([]);
+
+    
+    const [itemStock, setItemStock] = useState(null);
+
+  
     
     useEffect(() => {
         StockService.getUnsoldStockItemsByShoeTypeId(shoeType.id)
@@ -28,6 +33,13 @@ const ShowShoe = function() {
         setSizeOptionToSelected();
         setColourOptionToSelected();
         setAvailableSizesForColour();
+        StockService.getUnsoldStockItemsByShoeTypeIdAndColourAndSize(shoeType.id, selectedColour, selectedSize)
+            .then((res) => {
+                setItemStock(res.length);
+            });
+        console.log('size and colour', selectedColour, selectedSize);
+        console.log('size and colour', typeof selectedColour, typeof selectedSize);
+        
     },[selectedColour, selectedSize]);
 
 
@@ -110,6 +122,7 @@ const ShowShoe = function() {
                                 {optionSizes}
                             </select>
                         </div>
+                        {itemStock? <h4 className='shoe-text'>HURRY, ONLY {itemStock} LEFT!</h4>: null}
                         <Link to={{
                             pathname: '/bag',
                             state: {selectedSize, selectedColour, shoeType}

@@ -20,6 +20,13 @@ const HomePage = function() {
                 </div>
             </section>
 
+            <section className='whole-advert'>
+                <h3 className='advert-title' id='advert-3-title'>AUTUMN SALE</h3>
+                <div className='advert-action' id='advert-3-action'>
+                    <button className='action-button'>SHOP NOW</button>
+                </div>
+            </section>
+
         </div>
     );
 };
