@@ -198,6 +198,7 @@ button {
 
 .order-shoe-display {
     display: flex;
+    min-width: 250px;
 }
 
 .whole-order-summary {
