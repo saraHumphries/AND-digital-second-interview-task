@@ -11,6 +11,9 @@ const Bag = function() {
     const selectedColour = data.state.selectedColour;
     const selectedSize = data.state.selectedSize;
 
+    const [orderResponse, setOrderResponse] = useState(null);
+    
+
     
     const [itemToBuy, setItemToBuy] = useState({});
 
@@ -31,7 +34,19 @@ const Bag = function() {
                 id: 1
             }
         };
-        OrderService.postOrder(newOrder);
+        OrderService.postOrder(newOrder)
+            .then(res => determineOrderPlaced(res));
+    };
+
+    const determineOrderPlaced = function(res) {
+        const buyButton = document.getElementById('buy-button');
+        if (!res.error) {
+            buyButton.textContent = 'ORDER PLACED';
+            buyButton.style.backgroundColor = 'white';
+        } else {
+            buyButton.textContent = 'ORDER FAILED';
+            buyButton.style.backgroundColor = 'red';
+        }
     };
         
 
@@ -47,7 +62,8 @@ const Bag = function() {
                 <h3 className='shoe-text'>UK SIZE {selectedSize} IN {selectedColour}</h3>
                 
             </div>
-            <a href='/orders'><button onClick={onBuyClick}>BUY NOW</button></a>
+                
+                <button id='buy-button' onClick={onBuyClick}>BUY NOW</button>
         </div>
 
     )
