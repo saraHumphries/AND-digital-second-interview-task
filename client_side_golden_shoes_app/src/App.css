@@ -10,6 +10,18 @@ a {
     color: white;
 }
 
+button {
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+    background-color: #00dc55;
+    border: 1px solid #00dc55;  
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    font-size: large;
+}
+
 
 /* TopBar */
 
@@ -147,17 +159,7 @@ a {
     padding: 10px;
 }
 
-button {
-    margin: 10px;
-    text-decoration: none;
-    color: black;
-    background-color: #00dc55;
-    border: 1px solid #00dc55;  
-    text-align: center;
-    width: 200px;
-    height: 50px;
-    font-size: large;
-}
+
 
 .input-box {
     font-family: 'Montserrat';
@@ -171,6 +173,8 @@ button {
 .whole-bag {
     padding: 20px;
 }
+
+
 
 /* OrderPage */
 

@@ -22,7 +22,6 @@ const StockContainer = function() {
         return <ShoeType category={category} shoeType={shoeType} key={shoeType.id}></ShoeType>
     });
 
-    console.log(shoeTypes);
 
 
     return (

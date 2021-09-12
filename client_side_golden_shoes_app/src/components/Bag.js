@@ -26,26 +26,36 @@ const Bag = function() {
     
 
     const onBuyClick = function() {
-        const newOrder = {
-            stockItems: [{
-                id: itemToBuy.id
-            }],
-            customer: {
-                id: 1
-            }
-        };
-        OrderService.postOrder(newOrder)
-            .then(res => determineOrderPlaced(res));
+        
+            const newOrder = {
+                stockItems: [{
+                    id: itemToBuy.id
+                }],
+                customer: {
+                    id: 1
+                }
+            };
+            OrderService.postOrder(newOrder)
+                .then(res => determineOrderPlaced(res));
+        
+        
     };
 
     const determineOrderPlaced = function(res) {
         const buyButton = document.getElementById('buy-button');
         if (!res.error) {
+            buyButton.disabled = true;
             buyButton.textContent = 'ORDER PLACED';
             buyButton.style.backgroundColor = 'white';
+            const myOrdersButton = document.getElementById('my-orders-end-button');
+            myOrdersButton.style.display = 'block';
         } else {
+            buyButton.disabled = true;
             buyButton.textContent = 'ORDER FAILED';
             buyButton.style.backgroundColor = 'red';
+            buyButton.style.border = 'none';
+            const orderFailText = document.getElementById('order-fail-text');
+            orderFailText.style.display = 'block';
         }
     };
         
@@ -64,6 +74,8 @@ const Bag = function() {
             </div>
                 
                 <button id='buy-button' onClick={onBuyClick}>BUY NOW</button>
+                <p hidden id='order-fail-text'>Sorry!  Someone else bought the last pair. This size and colour are now sold out.</p>
+                <button hidden id='my-orders-end-button'><a href="/orders">SEE ALL MY ORDERS</a></button>
         </div>
 
     )
