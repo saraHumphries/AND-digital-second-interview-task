@@ -18,7 +18,7 @@ const OrdersSummary = function() {
     });
 
     return (
-       <div>
+       <div className='whole-order-summary'>
            <header className="order-header">
                 <h3>YOUR RECENT ORDERS</h3>
            </header>
