@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import OrderItem from "./OrderItem";
 
 const Order = function({order}) {
@@ -6,10 +7,18 @@ const Order = function({order}) {
         return <OrderItem orderItem = {orderItem} key={orderItem.id}></OrderItem>
     });
 
+    const [statuses, setStatuses] = useState({});
 
+    useEffect(() => {
+        getStatuses();
+    },[]);
 
+    
+    
     const getStatuses = function() {
         const statuses = {};
+        const returnsButton = document.getElementById('returns-button');
+        
         if (order.dispatchedStatus) {
             statuses.dispatchedText = 'THIS ORDER HAS BEEN DISPATCHED'
         } else {
@@ -17,11 +26,17 @@ const Order = function({order}) {
         }
         if (order.deliveredStatus) {
             statuses.deliveredText = 'AND SUCCESSFULLY DELIVERED'
+            returnsButton.style.display = 'block';
+            
         } else {
             statuses.deliveredText = 'NOT YET DELIVERED'
         }
-        return statuses;
+        setStatuses(statuses);
     };
+
+    
+
+    
 
 
     return (
@@ -34,8 +49,9 @@ const Order = function({order}) {
             
             <div>{orderItems}</div>
             <div>
-                <p>{getStatuses().dispatchedText}</p>
-                <p>{getStatuses().deliveredText}</p>
+                <p>{statuses.dispatchedText}</p>
+                <p>{statuses.deliveredText}</p>
+                <button hidden id='returns-button'>PRINT RETURNS LABEL</button>
             </div>
             
             

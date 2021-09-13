@@ -198,6 +198,16 @@ button {
     height: 20px;
     font-size: xx-small;
     margin-left: 0;
+    
+}
+
+#returns-button {
+    width: 120px;
+    height: 20px;
+    font-size: xx-small;
+    margin-left: 0;
+    background-color: #EFE4CA;
+    border: 1px solid black;
 }
 
 
