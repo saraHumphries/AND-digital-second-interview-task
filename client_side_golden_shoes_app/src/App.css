@@ -265,7 +265,7 @@ button {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 5% 10% 15% 20% 10% 40%;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .warehouse-order-item {
@@ -282,7 +282,7 @@ button {
     display: flex;
 }
 
-.mark-dispatch-button {
+.mark-dispatch-delivered-button {
     max-width: 150px;
     max-height: 20px;
     font-size: smaller;

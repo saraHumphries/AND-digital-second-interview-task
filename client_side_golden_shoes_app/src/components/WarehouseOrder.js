@@ -11,14 +11,17 @@ const WarehouseOrder = function({order, markOrderAsDispatched}) {
     const handleDispatchButtonClick = function() {
         markOrderAsDispatched(order.id);
     };
+    
 
     const getDispatch = function() {
         if (order.dispatchedStatus) {
             return <p>DISPATCHED</p>
         } else {
-            return <button onClick={handleDispatchButtonClick} className='mark-dispatch-button'>MARK DISPATCHED</button>
+            return <button onClick={handleDispatchButtonClick} className='mark-dispatch-delivered-button'>MARK DISPATCHED</button>
         };
     };
+
+    
 
     return (
         <div className='warehouse-order'>
@@ -27,6 +30,7 @@ const WarehouseOrder = function({order, markOrderAsDispatched}) {
             <p>{order.customer.name}</p>
             <p>{order.customer.address}</p>
             <div>{getDispatch()}</div>
+            
             <div>{warehouseOrderItems}</div>
             
             

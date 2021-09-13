@@ -24,7 +24,18 @@ const OrderService = {
     },
 
     updateOrderDispatchStatus(orderId, updatedOrder) {
-        return fetch(baseURL + `/${orderId}`, {
+        return fetch(baseURL + `/${orderId}/dispatched`, {
+            method: 'PUT',
+            body: JSON.stringify(updatedOrder),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json());
+    },
+
+    updateOrderDeliverStatus(orderId, updatedOrder) {
+        return fetch(baseURL + `/${orderId}/delivered`, {
             method: 'PUT',
             body: JSON.stringify(updatedOrder),
             headers: {

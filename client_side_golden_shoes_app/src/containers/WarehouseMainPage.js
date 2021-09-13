@@ -15,6 +15,8 @@ const WarehouseMainPage = function() {
         OrderService.updateOrderDispatchStatus(orderId, updatedOrder);
     };
 
+    
+
     useEffect(() => {
         OrderService.getOrders()
             .then(res => setOrders(res));

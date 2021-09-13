@@ -56,13 +56,23 @@ public class OrderController {
         return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/orders/{id}")
+    @PutMapping(value = "/orders/{id}/dispatched")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Order> updateOrderDispatchedStatus(@RequestBody Order order, @PathVariable Long id) {
         Order orderToUpdate = orderRepository.findById(id).get();
         orderToUpdate.setDispatchedStatus(order.getDispatchedStatus());
         Order updatedOrder = orderRepository.save(orderToUpdate);
-        return new ResponseEntity<>(updatedOrder, HttpStatus.CREATED);
+        return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
+    }
+
+
+    @PutMapping(value = "/orders/{id}/delivered")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<Order> updateOrderDeliveredStatus(@RequestBody Order order, @PathVariable Long id) {
+        Order orderToUpdate = orderRepository.findById(id).get();
+        orderToUpdate.setDispatchedStatus(order.getDispatchedStatus());
+        Order updatedOrder = orderRepository.save(orderToUpdate);
+        return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
     }
 
 
