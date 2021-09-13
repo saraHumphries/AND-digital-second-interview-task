@@ -1,4 +1,3 @@
-import StockService from "../services/StockService";
 import { useState, useEffect } from "react";
 import ShoeType from "../components/ShoeType";
 import ShoeTypeService from "../services/ShoeTypeService";

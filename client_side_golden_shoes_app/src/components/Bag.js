@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router"
 import StockService from "../services/StockService";
-import { Link } from "react-router-dom";
 import OrderService from "../services/OrderService";
 
 const Bag = function() {
