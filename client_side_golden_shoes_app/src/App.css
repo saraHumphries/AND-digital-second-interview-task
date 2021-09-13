@@ -238,3 +238,36 @@ button {
     height: 50px;
 }
 
+/* WareHousePage */
+
+.warehouse-main {
+    padding: 50px;
+}
+
+.table-headings {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 5% 10% 15% 20% 10% 40%;
+}
+
+.warehourse-order {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 5% 10% 15% 20% 10% 40%;
+}
+
+.warehouse-order-item {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 15% 50% 30%;
+}
+
+.warehouse-colour-size {
+    display: flex;
+}
+
+.warehouse-brand {
+    display: flex;
+}
+
+
