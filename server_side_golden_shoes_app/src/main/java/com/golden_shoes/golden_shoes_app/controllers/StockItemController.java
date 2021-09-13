@@ -46,14 +46,6 @@ public class StockItemController {
 
 
 
-    @PutMapping(value = "/stock_items/{stockItemId}")
-    @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<StockItem> updateStockItemSoldStatus(@RequestBody StockItem stockItem, @PathVariable Long stockItemId) {
-        StockItem stockItemToUpdate = stockItemRepository.findById(stockItemId).get();
-        stockItemToUpdate.setSoldStatus(stockItem.getSoldStatus());
-        final StockItem updatedStockItem = stockItemRepository.save(stockItemToUpdate);
-        return new ResponseEntity<>(updatedStockItem, HttpStatus.OK);
 
-    }
 
 }

@@ -22,16 +22,7 @@ const StockService = {
             .then(res => res.json());
     },
 
-    updateStockItemToSold(stockItemId, updatedStockItem) {
-        return fetch(baseURL + `/${stockItemId}`, {
-            method: 'PUT',
-            body: JSON.stringify(updatedStockItem),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => res.json());
-    }
+    
 };
 
 

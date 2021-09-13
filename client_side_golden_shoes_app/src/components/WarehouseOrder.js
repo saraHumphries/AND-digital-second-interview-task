@@ -11,7 +11,7 @@ const WarehouseOrder = function({order, key}) {
         if (order.dispatchedStatus) {
             return <p>DISPATCHED</p>
         } else {
-            return <button>mark dispatched</button>
+            return <button className='mark-dispatch-button'>mark dispatched</button>
         };
     };
 
