@@ -21,6 +21,17 @@ const OrderService = {
             }
         })
             .then(res => res.json());
+    },
+
+    updateOrderDispatchStatus(orderId, updatedOrder) {
+        return fetch(baseURL + `/${orderId}`, {
+            method: 'PUT',
+            body: JSON.stringify(updatedOrder),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json());
     }
 };
 

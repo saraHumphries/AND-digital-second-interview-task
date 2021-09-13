@@ -251,7 +251,7 @@ button {
     grid-template-columns: 5% 10% 15% 20% 10% 40%;
 }
 
-.warehourse-order {
+.warehouse-order {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 5% 10% 15% 20% 10% 40%;

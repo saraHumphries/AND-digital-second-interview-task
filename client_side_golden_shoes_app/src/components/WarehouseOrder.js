@@ -1,22 +1,27 @@
 import WarehouseOrderItem from "./WarehouseOrderItem";
 
 
-const WarehouseOrder = function({order, key}) {
+
+const WarehouseOrder = function({order, markOrderAsDispatched}) {
 
     const warehouseOrderItems = order.stockItems.map((warehouseOrderItem) => {
         return <WarehouseOrderItem warehouseOrderItem = {warehouseOrderItem} key={warehouseOrderItem.id}></WarehouseOrderItem>
     });
 
+    const handleDispatchButtonClick = function() {
+        markOrderAsDispatched(order.id);
+    };
+
     const getDispatch = function() {
         if (order.dispatchedStatus) {
             return <p>DISPATCHED</p>
         } else {
-            return <button className='mark-dispatch-button'>mark dispatched</button>
+            return <button onClick={handleDispatchButtonClick} className='mark-dispatch-button'>MARK DISPATCHED</button>
         };
     };
 
     return (
-        <div className='warehourse-order'>
+        <div className='warehouse-order'>
             <p>{order.id}</p>
             <p>{order.orderDate}</p>
             <p>{order.customer.name}</p>

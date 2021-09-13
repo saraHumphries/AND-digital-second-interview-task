@@ -8,13 +8,22 @@ const WarehouseMainPage = function() {
 
     const [orders, setOrders] = useState([]);
 
+    const markOrderAsDispatched = function(orderId) {
+        const updatedOrder = {
+            dispatchedStatus: true
+        };
+        OrderService.updateOrderDispatchStatus(orderId, updatedOrder);
+    };
+
     useEffect(() => {
         OrderService.getOrders()
             .then(res => setOrders(res));
-    }, []);
+    }, [markOrderAsDispatched]);
+
+    
 
     const warehouseOrdersList = orders.map((order) => {
-        return <WarehouseOrder order={order} key={order.id}></WarehouseOrder>
+        return <WarehouseOrder markOrderAsDispatched={markOrderAsDispatched} order={order} key={order.id}></WarehouseOrder>
     });
 
 
