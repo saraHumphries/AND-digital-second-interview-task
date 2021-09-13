@@ -1,6 +1,14 @@
 
 
+
 .accordion-question {
-    font-size: x-large;
+    font-size: large;
     font-weight: bolder;
+    padding: 5px;;
+}
+
+.accordion-answer {
+    width: 80%;
+    font-size: small;
+    padding: 5px;
 }
