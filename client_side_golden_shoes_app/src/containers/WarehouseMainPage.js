@@ -20,14 +20,10 @@ const WarehouseMainPage = function() {
             .then(res => setOrders(res));
     }, [markOrderAsDispatched]);
 
-    
-
     const warehouseOrdersList = orders.map((order) => {
         return <WarehouseOrder markOrderAsDispatched={markOrderAsDispatched} order={order} key={order.id}></WarehouseOrder>
     });
-
-
-
+    
     return (
         <div className='warehouse-main'>
             <div className='table-headings'>

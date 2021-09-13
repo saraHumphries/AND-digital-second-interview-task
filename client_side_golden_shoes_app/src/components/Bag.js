@@ -26,7 +26,7 @@ const Bag = function() {
     
 
     const onBuyClick = function() {
-        
+        if(itemToBuy) {
             const newOrder = {
                 stockItems: [{
                     id: itemToBuy.id
@@ -37,12 +37,25 @@ const Bag = function() {
             };
             OrderService.postOrder(newOrder)
                 .then(res => determineOrderPlaced(res));
+        } else {
+            const buyButton = document.getElementById('buy-button');
+
+            buyButton.disabled = true;
+            buyButton.textContent = 'ORDER FAILED';
+            buyButton.style.backgroundColor = 'red';
+            buyButton.style.border = 'none';
+            const orderFailText = document.getElementById('order-fail-text');
+            orderFailText.style.display = 'block';
+        }
+        
+            
         
         
     };
 
     const determineOrderPlaced = function(res) {
         const buyButton = document.getElementById('buy-button');
+
         if (!res.error) {
             buyButton.disabled = true;
             buyButton.textContent = 'ORDER PLACED';
