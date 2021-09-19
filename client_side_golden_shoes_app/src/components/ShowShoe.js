@@ -8,22 +8,20 @@ const ShowShoe = function() {
 
     const data = useLocation();
     const shoeType = data.state.shoeType;
+    const stockInventory = data.state.stockLevels;
 
     const [availableColours, setAvailableColours] = useState([]);
     const [availableSizes, setAvailableSizes] = useState([]);
     const [selectedColour, setSelectedColour] = useState(null);
     const [selectedSize, setSelectedSize] = useState(null);
-    const [stockInventory, setStockInventory] = useState([]);
+   
 
     
     const [itemStock, setItemStock] = useState(null);
 
   
     
-    useEffect(() => {
-        StockService.getUnsoldStockItemsByShoeTypeId(shoeType.id)
-            .then(res => setStockInventory(res))
-    }, []);
+    
 
     useEffect(() => {
         getAllAvailableColours();
