@@ -19,7 +19,7 @@ const WarehouseStockContainer = function() {
 
     return (
         <div id='warehouse-stock'>
-            <h1>STOCK</h1>
+            <h1>CURRENT STOCK - GOLDEN SHOES</h1>
             {shoeTypesList}
         </div>
     );

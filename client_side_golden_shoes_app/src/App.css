@@ -364,6 +364,11 @@ button {
     width: 200px;
 }
 
+#low-stock-text {
+    color: red;
+    font-weight: bolder;
+}
+
 /* FAQS */
 
 .faqs {
