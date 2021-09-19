@@ -331,6 +331,30 @@ button {
     margin: 0;
 }
 
+/* Warehouse Stock */
+
+#warehouse-stock {
+    padding: 50px;
+    min-width: 1700px;
+}
+
+#warehouse-stock-table {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 20% 50%;
+    border: 1px solid black;
+}
+
+#shoe-type-info {
+    display: flex;
+}
+
+
+
+#stock-info {
+    display: flex;
+}
+
 /* FAQS */
 
 .faqs {

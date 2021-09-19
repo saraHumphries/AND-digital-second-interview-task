@@ -10,6 +10,7 @@ import Bag from './components/Bag';
 import OrdersSummary from './components/OrdersSummary';
 import FAQ from './components/FAQ';
 import WarehouseMainPage from './containers/WarehouseMainPage';
+import WarehouseStockContainer from './containers/WarehouseStockContainer';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
           <Route path = '/bag' exact component={Bag}></Route>
           <Route path = '/orders' exact component={OrdersSummary}></Route>
           <Route path = '/faq' exact component={FAQ}></Route>
-          <Route path = '/warehouse_stock' exact component={WarehouseMainPage}></Route>
+          <Route path = '/warehouse_stock' exact component={WarehouseStockContainer}></Route>
+          <Route path = '/warehouse_orders' exact component={WarehouseMainPage}></Route>
         </Switch>
       </body>
     </Router>
