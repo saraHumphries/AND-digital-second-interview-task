@@ -51,6 +51,7 @@ const Bag = function() {
 
     const determineOrderPlaced = function(res) {
         const buyButton = document.getElementById('buy-button');
+        const dispatchSection = document.getElementById('dispatch-section');
 
         if (!res.error) {
             buyButton.disabled = true;
@@ -58,6 +59,7 @@ const Bag = function() {
             buyButton.style.backgroundColor = 'white';
             const myOrdersButton = document.getElementById('my-orders-end-button');
             myOrdersButton.style.display = 'block';
+            dispatchSection.style.display = 'none';
         } else {
             buyButton.disabled = true;
             buyButton.textContent = 'ORDER FAILED';
@@ -85,7 +87,7 @@ const Bag = function() {
                     <button id='buy-button' onClick={onBuyClick}>BUY NOW</button>
                     <p hidden id='order-fail-text'>Sorry!  Someone else bought the last pair. This size and colour are now sold out.</p>
                     <button hidden id='my-orders-end-button'><a href="/orders">SEE ALL MY ORDERS</a></button>
-                <div className='dispatch-section'>
+                <div id='dispatch-section'>
                     <h3>DISPATCH TO:</h3>
                     <h5 className='shoe-text'>21, MILLAR CRESCENT</h5>
                     <h5 className='shoe-text'>EDINBURGH</h5>

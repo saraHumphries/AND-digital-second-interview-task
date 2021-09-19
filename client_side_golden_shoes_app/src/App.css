@@ -186,7 +186,7 @@ button {
     display: flex;
     flex-wrap: wrap;
 }
-.dispatch-section {
+#dispatch-section {
     margin: 5px;
 }
 
