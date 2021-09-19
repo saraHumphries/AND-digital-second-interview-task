@@ -154,6 +154,14 @@ button {
     max-width: 200px;
 }
 
+.out-of-stock-shoe-image {
+    opacity: 0.4;
+}
+
+.out-of-stock-text {
+    color: red;
+}
+
 
 .selector {
     padding: 10px;
