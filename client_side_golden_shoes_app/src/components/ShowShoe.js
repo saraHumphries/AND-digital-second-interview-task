@@ -14,14 +14,9 @@ const ShowShoe = function() {
     const [availableSizes, setAvailableSizes] = useState([]);
     const [selectedColour, setSelectedColour] = useState(null);
     const [selectedSize, setSelectedSize] = useState(null);
-   
-
-    
+       
     const [itemStock, setItemStock] = useState(null);
 
-  
-    
-    
 
     useEffect(() => {
         getAllAvailableColours();

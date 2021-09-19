@@ -182,6 +182,23 @@ button {
     padding: 20px;
 }
 
+.buy-summary {
+    display: flex;
+    flex-wrap: wrap;
+}
+.dispatch-section {
+    margin: 5px;
+}
+
+.change-address-button {
+    width: 120px;
+    height: 20px;
+    font-size: xx-small;
+    margin-left: 0;
+    background-color: #EFE4CA;
+    border: 1px solid black;
+}
+
 
 
 /* OrderPage */

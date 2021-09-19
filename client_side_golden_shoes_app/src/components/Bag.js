@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router"
 import StockService from "../services/StockService";
 import OrderService from "../services/OrderService";
+import '../App.css';
 
 const Bag = function() {
 
@@ -10,10 +11,6 @@ const Bag = function() {
     const selectedColour = data.state.selectedColour;
     const selectedSize = data.state.selectedSize;
 
-    const [orderResponse, setOrderResponse] = useState(null);
-    
-
-    
     const [itemToBuy, setItemToBuy] = useState({});
 
     useEffect(() => {
@@ -80,14 +77,22 @@ const Bag = function() {
                 <h5 className='shoe-description shoe-text'>{shoeType.description}</h5>
                 <h5 className='price shoe-text'>£{shoeType.price}</h5>
             </div>
-            <div className='size-and-colour-selection'>
-                <h3 className='shoe-text'>UK SIZE {selectedSize} IN {selectedColour}</h3>
+            <div className='buy-summary'>
+                <div className='size-and-colour-selection'>
+                    <h3 className='shoe-text'>UK SIZE {selectedSize} IN {selectedColour}</h3>
                 
+                </div>
+                    <button id='buy-button' onClick={onBuyClick}>BUY NOW</button>
+                    <p hidden id='order-fail-text'>Sorry!  Someone else bought the last pair. This size and colour are now sold out.</p>
+                    <button hidden id='my-orders-end-button'><a href="/orders">SEE ALL MY ORDERS</a></button>
+                <div className='dispatch-section'>
+                    <h3>DISPATCH TO:</h3>
+                    <h5 className='shoe-text'>21, MILLAR CRESCENT</h5>
+                    <h5 className='shoe-text'>EDINBURGH</h5>
+                    <h5 className='shoe-text'>EH10 5HN</h5>
+                    <button className='change-address-button'>CHANGE ADDRESS</button>
+                </div>
             </div>
-                
-                <button id='buy-button' onClick={onBuyClick}>BUY NOW</button>
-                <p hidden id='order-fail-text'>Sorry!  Someone else bought the last pair. This size and colour are now sold out.</p>
-                <button hidden id='my-orders-end-button'><a href="/orders">SEE ALL MY ORDERS</a></button>
         </div>
 
     )
