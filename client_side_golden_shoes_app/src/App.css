@@ -185,6 +185,8 @@ button {
 .buy-summary {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 #dispatch-section {
     margin: 5px;
@@ -197,6 +199,21 @@ button {
     margin-left: 0;
     background-color: #EFE4CA;
     border: 1px solid black;
+}
+
+#voucher-button {
+    width: 120px;
+    height: 20px;
+    font-size: xx-small;
+    margin-left: 0;
+    background-color: #EFE4CA;
+    border: 1px solid black;
+}
+
+.buy-voucher-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
