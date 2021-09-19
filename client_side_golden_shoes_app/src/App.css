@@ -341,8 +341,9 @@ button {
 #warehouse-stock-table {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 20% 50%;
+    grid-auto-columns: 40% 60%;
     border: 1px solid black;
+    width: 50%;
 }
 
 #shoe-type-info {
@@ -360,6 +361,7 @@ button {
 
 #stock-info {
     display: flex;
+    width: 200px;
 }
 
 /* FAQS */
