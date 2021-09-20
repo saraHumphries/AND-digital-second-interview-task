@@ -28,7 +28,7 @@ const WarehouseShoe = function({shoeType}) {
                     <p className='shoe-text'>{shoeType.brand}</p>
                     <h6 className='shoe-text'>{shoeType.description}</h6>
                 </div>
-                {stockItems.length < 5? <p id='low-stock-text'>LOW STOCK!!</p> : null}
+                {stockItems.length < 3? <p id='low-stock-text'>LOW STOCK!!</p> : null}
             </div>
             <div id='stock-info-section'>
                 {warehouseStockItems}

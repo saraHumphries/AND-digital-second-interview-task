@@ -6,7 +6,7 @@ const TitleBar = function() {
         <div id='title-bar'>
             <BurgerMenu></BurgerMenu>
             <a href="/">
-                <h2 id='shop-title'>GOLDEN SHOES</h2>
+                <h2 id='shop-title'>GOLDEN SHOE</h2>
             </a>
         </div>
     );

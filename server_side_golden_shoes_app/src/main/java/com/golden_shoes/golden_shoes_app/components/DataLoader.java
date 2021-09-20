@@ -47,9 +47,24 @@ public class DataLoader implements ApplicationRunner {
         shoeTypeRepository.save(clarksShoe);
         ShoeType converseHiTop = new ShoeType("CONVERSE", "ALL STAR HI TOP", "men", "https://d2ob0iztsaxy5v.cloudfront.net/product/340140/3401401070_zm.jpg", 57.00);
         shoeTypeRepository.save(converseHiTop);
+        ShoeType ckBoot = new ShoeType("CALVIN KLEIN", "PLATFORM BOOT", "women", "https://d2ob0iztsaxy5v.cloudfront.net/product/144253/1442537060_zm.jpg", 140.00);
+        shoeTypeRepository.save(ckBoot);
+        ShoeType sandal = new ShoeType("HAVAIANAS", "SLIM", "women", "https://d2ob0iztsaxy5v.cloudfront.net/product/176172/1761722060_zm.jpg", 25.00);
+        shoeTypeRepository.save(sandal);
+        ShoeType heel = new ShoeType("D AND G", "STILETTO", "women", "https://d2ob0iztsaxy5v.cloudfront.net/product/111222/1112222560_zm.jpg", 300.00);
+        shoeTypeRepository.save(heel);
+
+
+        StockItem item14 = new StockItem(5, "yellow", sandal, goldenShoes);
+        stockItemRepository.save(item14);
+        StockItem item15 = new StockItem(3, "black", ckBoot, goldenShoes);
+        stockItemRepository.save(item15);
+        StockItem item16 = new StockItem(3, "grey", converseHiTop, goldenShoes);
+        stockItemRepository.save(item16);
+        StockItem item17 = new StockItem(5, "red", heel, goldenShoes);
+        stockItemRepository.save(item17);
         StockItem item13 = new StockItem(5, "grey", clarksShoe, goldenShoes);
         stockItemRepository.save(item13);
-
         StockItem item1 = new StockItem(7, "black", docMartenBoots, goldenShoes);
         stockItemRepository.save(item1);
         goldenShoes.addStock(item1);
@@ -69,16 +84,16 @@ public class DataLoader implements ApplicationRunner {
         stockItemRepository.save(item6);
         goldenShoes.addStock(item6);
 
-        StockItem item7 = new StockItem(3, "pink", adidasTrainer, goldenShoes);
+        StockItem item7 = new StockItem(3, "yellow", adidasTrainer, goldenShoes);
         stockItemRepository.save(item7);
         goldenShoes.addStock(item7);
-        StockItem item8 = new StockItem(3, "pink", adidasTrainer, goldenShoes);
+        StockItem item8 = new StockItem(6, "yellow", adidasTrainer, goldenShoes);
         stockItemRepository.save(item8);
         goldenShoes.addStock(item8);
-        StockItem item9 = new StockItem(5, "pink", adidasTrainer, goldenShoes);
+        StockItem item9 = new StockItem(5, "yellow", adidasTrainer, goldenShoes);
         stockItemRepository.save(item9);
         goldenShoes.addStock(item9);
-        StockItem item10 = new StockItem(5, "blue", adidasTrainer, goldenShoes);
+        StockItem item10 = new StockItem(5, "yellow", adidasTrainer, goldenShoes);
         stockItemRepository.save(item10);
         goldenShoes.addStock(item10);
         StockItem item11 = new StockItem(3, "blue", adidasTrainer, goldenShoes);
