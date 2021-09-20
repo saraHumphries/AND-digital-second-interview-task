@@ -70,7 +70,7 @@ public class StockManager {
     public Order makeOrder(Customer customer, List<StockItem> orderItems) throws Exception {
 
         ArrayList<StockItem> itemsInStock = new ArrayList<>();
-        Order order = new Order(itemsInStock, customer, LocalDate.now(), 0.00);
+        Order order = new Order(itemsInStock, customer, LocalDate.now(), LocalDate.now().plusDays(7), 0.00);
 
         for (StockItem stockItem : orderItems) {
             if (!stockItem.getSoldStatus()) {

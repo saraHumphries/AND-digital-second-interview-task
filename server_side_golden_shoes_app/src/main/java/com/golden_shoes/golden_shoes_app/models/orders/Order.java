@@ -27,8 +27,11 @@ public class Order {
     @JsonIgnoreProperties(value = "orders")
     private Customer customer;
 
-    @Column(name = "orderDate")
+    @Column(name = "order_date")
     private LocalDate orderDate;
+
+    @Column(name = "eta_delivery")
+    private LocalDate etaDelivery;
 
     @Column(name = "totalCost")
     private Double totalCost;
@@ -39,10 +42,11 @@ public class Order {
     @Column(name = "delivered_status")
     private Boolean deliveredStatus;
 
-    public Order(List<StockItem> stockItems, Customer customer, LocalDate orderDate, Double totalCost) {
+    public Order(List<StockItem> stockItems, Customer customer, LocalDate orderDate, LocalDate etaDelivery, Double totalCost) {
         this.stockItems = stockItems;
         this.customer = customer;
         this.orderDate = orderDate;
+        this.etaDelivery = etaDelivery;
         this.totalCost = totalCost;
         this.dispatchedStatus = false;
         this.deliveredStatus = false;
@@ -106,5 +110,13 @@ public class Order {
 
     public void setTotalCost(Double totalCost) {
         this.totalCost = totalCost;
+    }
+
+    public LocalDate getEtaDelivery() {
+        return etaDelivery;
+    }
+
+    public void setEtaDelivery(LocalDate etaDelivery) {
+        this.etaDelivery = etaDelivery;
     }
 }
