@@ -14,7 +14,9 @@ const ShoeType = function({category, shoeType}) {
 
     return (
         <div>
-            {stockLevels.length == 0? <img className="image-icon out-of-stock-shoe-image" src={shoeType.imageUrl}></img>
+            {stockLevels.length == 0? <div className='shoe-display'>
+                    <img className="image-icon out-of-stock-shoe-image"src={shoeType.imageUrl}></img>
+                </div>
             : <Link to={{
                 pathname: `/stock/${category}/${shoeType.brand}/${shoeType.description}`,
                 state: {shoeType, stockLevels}
