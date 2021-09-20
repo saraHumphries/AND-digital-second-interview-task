@@ -56,6 +56,8 @@ button {
     border-top: 2px solid goldenrod;
     border-bottom: 2px solid goldenrod;
     color: black;
+    font-size: clamp(25px, 5.5vw, 50px);
+    
 }
 
 
