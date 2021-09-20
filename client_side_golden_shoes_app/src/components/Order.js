@@ -44,6 +44,7 @@ const Order = function({order}) {
             <div>
                 <h5 className='order-title'>ORDER {order.id} -- PLACED ON {order.orderDate} FOR £{order.totalCost}</h5>
                 <button className='tracking-button'>GET TRACKING INFO</button>
+                <p>DELIVERY EXPECTED: {order.etaDelivery}</p>
                 <p>DELIVERY ADDRESS: {order.customer.address}</p>
             </div>
             
