@@ -1,4 +1,4 @@
-# Golden Shoes App
+# Golden Shoe App
 
 A react.js reponsive web app built mobile-design first. Using a postSQL database and Java Spring Boot server-side. <br>
 ![](short_gif_demo.gif)
