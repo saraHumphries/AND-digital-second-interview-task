@@ -18,9 +18,19 @@ const WarehouseMainPage = function() {
     
 
     useEffect(() => {
+        removeTopAndTitleBars();
         OrderService.getOrders()
             .then(res => setOrders(res));
     }, [markOrderAsDispatched]);
+
+    
+    const removeTopAndTitleBars = function() {
+        const topBar = document.getElementById('top-bar');
+        topBar.style.display = 'none';
+        const titleBar = document.getElementById('title-bar');
+        titleBar.style.display = 'none';
+    };
+    
 
     const warehouseOrdersList = orders.map((order) => {
         return <WarehouseOrder markOrderAsDispatched={markOrderAsDispatched} order={order} key={order.id}></WarehouseOrder>
@@ -28,6 +38,8 @@ const WarehouseMainPage = function() {
     
     return (
         <div className='warehouse-main'>
+            <h2 id='shop-title'>GOLDEN SHOE</h2>
+            <h1>GOLDEN SHOE ORDERS</h1>
             <div className='table-headings'>
                 <h4>order_id</h4>
                 <h4>order_date</h4>

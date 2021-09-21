@@ -14,22 +14,24 @@ import WarehouseStockContainer from './containers/WarehouseStockContainer';
 
 function App() {
   return (
-    <Router>
-      <body id="whole-app">
-        <TopBar></TopBar>
-        <TitleBar></TitleBar>
-        <Switch>
-          <Route path = '/' exact component={HomePage}></Route>
-          <Route path = '/stock/:category' exact component={StockContainer}></Route>
-          <Route path = '/stock/:category/:shoeBrand/:shoe' exact component={ShowShoe}></Route>
-          <Route path = '/bag' exact component={Bag}></Route>
-          <Route path = '/orders' exact component={OrdersSummary}></Route>
-          <Route path = '/faq' exact component={FAQ}></Route>
-          <Route path = '/warehouse_stock' exact component={WarehouseStockContainer}></Route>
-          <Route path = '/warehouse_orders' exact component={WarehouseMainPage}></Route>
-        </Switch>
-      </body>
-    </Router>
+    
+      <Router>
+        <body id="whole-app">
+          <TopBar></TopBar>
+          <TitleBar></TitleBar>
+          <Switch>
+            <Route path = '/' exact component={HomePage}></Route>
+            <Route path = '/stock/:category' exact component={StockContainer}></Route>
+            <Route path = '/stock/:category/:shoeBrand/:shoe' exact component={ShowShoe}></Route>
+            <Route path = '/bag' exact component={Bag}></Route>
+            <Route path = '/orders' exact component={OrdersSummary}></Route>
+            <Route path = '/faq' exact component={FAQ}></Route>
+            <Route path = '/warehouse_stock' exact component={WarehouseStockContainer}></Route>
+            <Route path = '/warehouse_orders' exact component={WarehouseMainPage}></Route>
+          </Switch>
+        </body>
+      </Router>
+    
   );
 }
 
