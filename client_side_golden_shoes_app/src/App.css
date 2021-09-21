@@ -120,6 +120,18 @@ button {
 }
 /* ShoeType */
 
+.filter-section {
+    padding-left: 35px;
+    padding-bottom: 10px;
+}
+
+.filter {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 45% 30%;
+    padding: 5px;
+}
+
 #shoe-type-list {
     display: flex;
     justify-content: space-around;
