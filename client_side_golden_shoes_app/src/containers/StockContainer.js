@@ -29,16 +29,14 @@ const StockContainer = function() {
                 <div className='filter'>
                     <label htmlFor='brand'>FILTER BY BRAND</label>
                     <select id='brand'>
-                        <option>ADIDAS</option>
-                        <option>CONVERSE</option>
+                        <option>--</option>
                     </select>
                 </div>
 
                 <div className='filter'>
                     <label htmlFor='price'>FILTER BY PRICE</label>
                     <select id='price'>
-                        <option>UNDER £50</option>
-                        <option>£50 - £100</option>
+                        <option>--</option>
                     </select>
                 </div>
             </section>

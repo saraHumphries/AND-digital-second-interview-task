@@ -111,8 +111,10 @@ public class DataLoader implements ApplicationRunner {
         stockItemRepository.save(item12);
         goldenShoes.addStock(item12);
 
-        Customer customer1 = new Customer("Sara Humphries", "21, Millar Cresent");
+        Customer customer1 = new Customer("Sara Humphries", "21, Millar Cresent, Edinburgh, EH10 5HN");
         customerRepository.save(customer1);
+        Customer customer2 = new Customer("Alex Davies", "35, Mapperley Hall Drive, Nottingham, NG3 5EY");
+        customerRepository.save(customer2);
 
         ArrayList<StockItem> orderList1 = new ArrayList<>();
         orderList1.add(item2);
@@ -127,7 +129,7 @@ public class DataLoader implements ApplicationRunner {
 
         ArrayList<StockItem> orderList2 = new ArrayList<>();
         orderList2.add(item3);
-        Order order2 = goldenShoes.makeOrder(customer1, orderList2);
+        Order order2 = goldenShoes.makeOrder(customer2, orderList2);
         order2.setOrderDate(LocalDate.parse("2021-09-12"));
         order2.setEtaDelivery((LocalDate.parse("2021-09-19")));
         order2.setDispatchedStatus(true);
