@@ -13,8 +13,8 @@ const WarehouseShoe = function({shoeType}) {
 
    
 
-    const warehouseStockItems = stockItems.map((warehouseStockItem) => {
-        return <WarehouseStockItem warehouseStockItem = {warehouseStockItem} key={warehouseStockItem.id}></WarehouseStockItem>
+    const warehouseStockItems = stockItems.map((warehouseStockItem, index) => {
+        return <WarehouseStockItem index={index} warehouseStockItem = {warehouseStockItem} key={warehouseStockItem.id}></WarehouseStockItem>
     });
 
     
@@ -28,9 +28,10 @@ const WarehouseShoe = function({shoeType}) {
                     <p className='shoe-text'>{shoeType.brand}</p>
                     <h6 className='shoe-text'>{shoeType.description}</h6>
                 </div>
-                {stockItems.length < 3? <p id='low-stock-text'>LOW STOCK!!</p> : null}
+                {stockItems.length < 5? <p id='low-stock-text'>LOW STOCK!!</p> : null}
             </div>
             <div id='stock-info-section'>
+                <h3>{stockItems.length} items left in stock</h3>
                 {warehouseStockItems}
             </div>
         </div>

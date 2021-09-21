@@ -310,6 +310,8 @@ button {
     grid-auto-flow: column;
     grid-template-columns: 5% 10% 15% 20% 10% 40%;
     align-items: flex-start;
+    border: 1px solid grey;
+    padding-left: 20px;
 }
 
 .warehouse-order-item {
@@ -363,7 +365,7 @@ button {
 
 #stock-info {
     display: flex;
-    width: 200px;
+    width: 500px;
 }
 
 #low-stock-text {

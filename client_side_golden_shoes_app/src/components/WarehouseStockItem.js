@@ -1,9 +1,11 @@
-const WarehouseStockItem = function({warehouseStockItem}) {
+const WarehouseStockItem = function({warehouseStockItem, index}) {
     return (
         <div id='stock-info'>
-            <p className='shoe-text'>stock_id_{warehouseStockItem.id}</p>
-            <p className='shoe-text'>{warehouseStockItem.colour}</p>
-            <p className='shoe-text'>{warehouseStockItem.size}</p>
+            <p className='shoe-text'>{index + 1}</p>
+        
+            <p className='shoe-text'>COLOUR: {warehouseStockItem.colour}</p>
+            <p className='shoe-text'>SIZE: {warehouseStockItem.size}</p>
+            <p className='shoe-text'>(STOCK ID: {warehouseStockItem.id})</p>
         </div>
     );
 };
